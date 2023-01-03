@@ -3,11 +3,12 @@
 This is my working file of functions for 
 [GNU bc](https://www.gnu.org/software/bc/).
 
-## Aspirations
+### Aspirations
 
  - Add a numerical derivative function
+ - Bernoulli numbers and polynomials
 
-## Links and References
+### Links and References
 
  - [The GNU Basic Calculator (bc): a Quick-Start Guide for Mathematicians](https://org.coloradomesa.edu/~mapierce2/bc)
  - [GNU bc Manual](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
