@@ -8,7 +8,7 @@ My working file of functions for
 
 ### Functions
 
-In addition to basic functions not worth specifying here, 
+In addition to many basic functions,
 this file contains implementations of the following:
 
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
@@ -33,7 +33,7 @@ this file contains implementations of the following:
 
 ### Aspirations
 
-  - Remove the `n` parameter to `approximate`
+  - Remove the `n` parameter to `rational`
   - Improve numerical integral function by removing `n`
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil))
   - Bernoulli numbers and polynomials
