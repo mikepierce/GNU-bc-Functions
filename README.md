@@ -22,6 +22,7 @@ My working file of functions for
   - Improve numerical integral function by removing `n`
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil))
   - Bernoulli numbers and polynomials
+  - GCD
 
 ### Links and References
 
@@ -29,3 +30,4 @@ My working file of functions for
   - [GNU bc Manual](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
   - [Library of bc function on phodd.net](http://phodd.net/gnu-bc/)
   - [Keith Matthews' number theory functions](http://www.numbertheory.org/gnubc/gnubc.html)
+  - ["math and bitcoin tools in gnu bc and bash"](https://github.com/fivepiece/btc-bash-ng)
