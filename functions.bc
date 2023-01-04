@@ -175,7 +175,7 @@ define boole_(a,b,n) {
 
 # Display the first n rational approximations to the decimal number x
 # obtained by truncating the continued fraction of x
-define void approximate(x,n) {
+define void rational(x,n) {
     auto i,a,h,k,m
     m = x
     if (x == int(x))
