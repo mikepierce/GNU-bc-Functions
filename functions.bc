@@ -100,7 +100,7 @@ define choose(n,k) {
     return choose_(n,k)
 }
 
-# Dynamic and recursive helper function for choose(n,k)
+# Dynamic, recursive helper function for choose(n,k)
 define choose_(n,k) {
     auto i
     if ( (k == 0) || (k == n) )
@@ -139,7 +139,7 @@ define newton(x) {
     return x
 }
 
-# Iteratively applies Newton's Method n times 
+# Iteratively applies Newton's Method n times, printing each result,
 # with initial guess x (parameter) and (global) functions f and ff=f'
 define void newtoniter(x,n) { 
     auto i
@@ -147,9 +147,14 @@ define void newtoniter(x,n) {
         print "n=", i++, " | ", x, "\n"
 }
 
+# Numerically calculate the definite integral 
+# of f (global) from a to b with "precision" n
+define integrate(a,b,n) {
+    return boole_(a,b,n)
+}
+
 # Composite Boole's Rule
-#TODO improve this with n automatic based on scale
-define boole (a,b,n) {
+define boole_(a,b,n) {
     auto h, i, left, mid, right, sum
     h = (b-a)/(4*n)
     right=f(a)
@@ -162,12 +167,6 @@ define boole (a,b,n) {
         sum += 7*left+32*mid[1]+12*mid[2]+32*mid[3]+7*right
     }
     return 2*sum*h/45
-}
-
-define nderivative (x) {
-    # finite differences
-    # five-point stencil
-    return 34
 }
 
 
@@ -203,24 +202,4 @@ define void approximate(x,n) {
     }
     print m/1, " is the number\n"
 }
-
-
-################################################################################
-### Play
-
-define mortpay (r,t,n,s) {
-    auto a
-    a = r/n
-    b= (1+a)^(-n*t)
-    b=1-b
-    b=b/a
-    return s/b
-}
-
-#define f (*arr[]) {
-#    arr[4] = 34;
-#    return arr[3];
-#}
-#
-#define g (*a[]) { a[1] = a[1]+1; return a; }
 
