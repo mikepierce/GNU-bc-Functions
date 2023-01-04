@@ -1,11 +1,14 @@
 # GNU Basic Calculator (bc) Functions
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a-Coffee-orange)](https://www.buymeacoffee.com/mpierce)
+
 My working file of functions for 
 [GNU bc](https://www.gnu.org/software/bc/).
 
 ### Conventions
 
-  - Function names ending in an underscore `_` are *helper* functions,
+  - Function names ending in `_` are *helper* functions,
     not intended to be called directly.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
