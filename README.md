@@ -34,6 +34,9 @@ this file contains implementations of the following:
 ### Aspirations
 
   - Remove the `n` parameter to `rational`
+  - Add `cubic` and `quartic` functions
+    that prints the roots of a cubic polynomial or quartic polynomial
+  - Add a prime factorization function
   - Improve numerical integral function by removing `n`
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil))
   - Bernoulli numbers and polynomials
