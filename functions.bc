@@ -180,6 +180,28 @@ define boole_(a,b,n) {
 ################################################################################
 ### Miscellaneous
 
+#
+define void quadratic(a,b,c) {
+    print "For vertex (h,k) and roots r[1] and r[2],\n"
+
+    h = -b/(2*a)
+    k = a*h^2 + b*h + c
+    print "h = ", h, "\n"
+    print "k = ", k, "\n"
+
+    if (b^2-4*a*c < 0) {
+        print "The roots are non-real: \n"
+        scale/=2
+        print h/1, " ± i", sqrt(k/a), "\n"
+        scale*=2
+    } else {
+    r[1] = h - sqrt(-k/a)
+    r[2] = h + sqrt(-k/a)
+    print "r[1] = ", r[1], "\n"
+    print "r[1] = ", r[2], "\n"
+    }
+}
+
 # Display the first n rational approximations to the decimal number x
 # obtained by truncating the continued fraction of x
 define void rational(x,n) {
