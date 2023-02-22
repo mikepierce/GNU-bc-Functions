@@ -6,7 +6,7 @@
 My working file of functions for 
 [GNU bc](https://www.gnu.org/software/bc/).
 
-### Functions
+## Functions
 
 In addition to many basic functions,
 this file contains implementations of the following:
@@ -21,7 +21,7 @@ this file contains implementations of the following:
     (`rational`)
     to a real number by a convergent of its continued fraction
 
-### Conventions
+## Conventions
 
   - Function names ending in `_` are *helper* functions,
     not intended to be called directly.
@@ -30,9 +30,12 @@ this file contains implementations of the following:
     Such a function is named `f`. If there must be two functions,
     the other will be named `g`. If a function wants to know the derivative of `f`,
     it'll expect that derivative to be named `ff` (see `newton` for example).
+  - If a function changes/defines a variable globally, 
+    the function must `print` that assignment.
 
-### Aspirations
+## Aspirations
 
+  - Actually adhere to that last convention
   - Remove the `n` parameter to `rational`
   - Add `cubic` and `quartic` functions
     that prints the roots of a cubic polynomial or quartic polynomial
@@ -43,7 +46,7 @@ this file contains implementations of the following:
   - Euclidean algorithm for the GCD
   - If I compile bc myself, will it get GNU readline support?
 
-### Allusions
+## Allusions
 
   - [The GNU Basic Calculator (bc): a Quick-Start Guide for Mathematicians](https://org.coloradomesa.edu/~mapierce2/bc)
   - [GNU bc Manual](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
