@@ -35,11 +35,14 @@ this file contains implementations of the following:
 
 ## Aspirations
 
+  - List ALL mathematically ubiquitous functions in this README, 
+    but just list them, maybe with a link
   - Actually adhere to that last convention
   - Remove the `n` parameter to `rational`
   - Add `cubic` and `quartic` functions
     that prints the roots of a cubic polynomial or quartic polynomial
   - Add a prime factorization function
+  - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073))
   - Improve numerical integral function by removing `n`
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil))
   - Bernoulli numbers and polynomials

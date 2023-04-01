@@ -6,8 +6,8 @@
 
 pi=4*a(1)
 ex=e(1)
-define abs(x) { if (x>0) return x; return -x }
-define sgn(x) { if (x>0) return 1; return -1 }
+define sgn(x) { if(x>0) return 1; if(x<0) return -1; }
+define abs(x) { return sgn(x)*x }
 
 # Return the integer-part of a number (not the floor)
 define int(x) { auto s; s=scale; scale=0; x/=1; scale=s; return x; }
@@ -46,6 +46,15 @@ define arcsin(x) {
     return sgn(x)*a(sqrt((1/(1-(x^2)))-1))
 }
 define arctan(x) { return a(x) }
+define atan2(y,x) { 
+    if(x == 0) return sgn(y)*pi/2
+    if(x < 0) {
+        if(y < 0)
+            return a(y/x)-pi
+        return a(y/x)+pi
+    }
+    return a(y/x)
+}
 define arcsec(x) { return arccos(1/x) }
 define arccsc(x) { return arcsin(1/x) }
 define arccot(x) { return pi/2-a(x) }
@@ -198,7 +207,7 @@ define void quadratic(a,b,c) {
     r[1] = h - sqrt(-k/a)
     r[2] = h + sqrt(-k/a)
     print "r[1] = ", r[1], "\n"
-    print "r[1] = ", r[2], "\n"
+    print "r[2] = ", r[2], "\n"
     }
 }
 
