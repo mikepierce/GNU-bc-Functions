@@ -13,13 +13,13 @@ this file contains implementations of the following:
 
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     (`newton`)
-    for approximating zeros of functions
+    – approximate a zero of a smooth function
   - [Boole's Rule](https://en.wikipedia.org/wiki/Boole's_rule)
     (`boole_`)
-    for numerical integration
+    – numerically integration a function
   - [Rational Approximation](https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents) 
     (`rational`)
-    to a real number by a convergent of its continued fraction
+    – approximate a number by a rationalc onvergent of its continued fraction
 
 ## Conventions
 
@@ -35,9 +35,10 @@ this file contains implementations of the following:
 
 ## Aspirations
 
+  - Recompute `pi` in each function in case `scale` has changed
   - List ALL mathematically ubiquitous functions in this README, 
     but just list them, maybe with a link
-  - Actually adhere to that last convention
+  - Actually adhere to that last convention about printing things
   - Remove the `n` parameter to `rational`
   - Add `cubic` and `quartic` functions
     that prints the roots of a cubic polynomial or quartic polynomial
