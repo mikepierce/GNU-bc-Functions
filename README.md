@@ -81,15 +81,16 @@ more novel functions:
 
 ## Aspirations
 
-  - Remove the `n` parameter to `rational`
-  - Improve numerical integral function by removing `n`
+  - Remove the `n` parameter to `rational`, 
+    instead approximating the input up to scale.
+  - Improve the numerical integration function by removing `n`,
+    instead approximating the value up to scale.
   - Add `cubic` and `quartic` functions
-    that prints the roots of a cubic polynomial or quartic polynomial
-  - Add a prime factorization function
-  - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073))
-  - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil))
-  - Bernoulli numbers and polynomials
-  - Euclidean algorithm for the GCD (add to exercises)
+    that prints the details of a cubic and quartic polynomial.
+  - Add a prime factorization function.
+  - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
+  - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil)).
+  - Implement the Euclidean algorithm for the GCD.
 
 ## Allusions
 
