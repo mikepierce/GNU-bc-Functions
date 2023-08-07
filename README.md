@@ -46,6 +46,7 @@ Here is a list of _all_ the functions this file defines:
 `integrate`
 [`quadratic`](https://en.wikipedia.org/wiki/Quadratic_equation)
 `rational`
+`bases`
 
 Alongside the ubiquitous mathematical functions in this list,
 this file contains implementations of the following
@@ -64,6 +65,9 @@ more novel functions:
     (`rational`)
     which approximates a number by a rational convergent 
     of its continued fraction.
+  - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
+    (`bases`)
+    which display a number expressed in bases 2, 3, …, 36.
 
 ## Conventions
 

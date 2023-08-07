@@ -244,3 +244,18 @@ define void rational(x,n) {
     print m/1, " is the number\n"
 }
 
+# Display n expressed in bases 2,3,…,36
+define void bases(n) {
+    auto i,base
+    base = obase
+    for (i=2; i<=36; i++) {
+        obase = 10
+        if (i<10) print " "
+        print "  ", i, " | "
+        obase = i
+        print n, "\n"
+    }
+    obase = base
+}
+
+
