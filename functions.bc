@@ -167,9 +167,9 @@ define void newtoniter(x,n) {
 }
 
 # Numerically calculate the definite integral 
-# of f (global) from a to b with "precision" n
-define integrate(a,b,n) {
-    return boole_(a,b,n)
+# of f (global) from a to b 
+define integrate(a,b) {
+    return boole_(a,b,(b-a)*(e((scale/5)*l(10))))
 }
 
 # Composite Boole's Rule
