@@ -36,6 +36,12 @@ Here is a list of _all_ the functions this file defines:
 `sech`
 `csch`
 `coth`
+`arcosh`
+`arsinh`
+`artanh`
+`arsech`
+`arcsch`
+`arcoth`
 `pythagtriple`
 [`factorial`](https://en.wikipedia.org/wiki/Factorial)
 [`pick`](https://en.wikipedia.org/wiki/Permutation)
