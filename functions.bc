@@ -69,8 +69,8 @@ define sech(x) { return 1/cosh(x) }
 define csch(x) { return 1/sinh(x) }
 define coth(x) { return 1/tanh(x) }
 
-define arcosh(x) { return ln(x+sqrt{x^2-1}) }
-define arsinh(x) { return ln(x+sqrt{x^2+1}) }
+define arcosh(x) { return ln(x+sqrt(x^2-1)) }
+define arsinh(x) { return ln(x+sqrt(x^2+1)) }
 define artanh(x) { return (1/2)*ln((1+x)/(1-x))}
 define arsech(x) { return arcosh(1/x) }
 define arcsch(x) { return arsinh(1/x) }
