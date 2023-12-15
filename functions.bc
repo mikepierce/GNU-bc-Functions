@@ -180,6 +180,7 @@ define integrate(a,b) {
 }
 
 # Composite Boole's Rule
+# The Definite Integral of f from a to b using n subdivisions
 define boole_(a,b,n) {
     auto h, i, left, mid, right, sum
     h = (b-a)/(4*n)
@@ -195,6 +196,16 @@ define boole_(a,b,n) {
     return 2*sum*h/45
 }
 
+### Trapezoid Rule 
+# The Definite Integral of f from a to b using n subdivisions
+define trapezoid_(a,b,n) {
+    auto h, i, sum
+    h = (b-a)/n
+    for (i=1; i<n; i++) {
+        sum += f(a+i*h)
+    }
+    return (h/2)*( f(a) + 2*sum + f(b) )
+}
 
 ################################################################################
 ### Miscellaneous
