@@ -61,6 +61,9 @@ more novel functions:
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     (`newton`)
     which approximates a zero of a smooth function.
+  - The Trapezoid Rule
+    (`trapezoid_`)
+    which numerically computes the value of a definite integral.
   - [Boole's Rule](https://en.wikipedia.org/wiki/Boole's_rule)
     (`boole_` called by `integrate`)
     which numerically computes the value of a definite integral.
@@ -91,13 +94,16 @@ more novel functions:
 
 ## Aspirations
 
+  - Change the file extensions to `.b`
+  - Incorporate that code from `pi.b` and `primes.b` from the BC source
+  - Add a prime factorization function.
+  - Separate out “pure” functions from “teacher” functions
   - Remove the `n` parameter to `rational`, 
     instead approximating the input up to scale.
   - Improve the numerical integration function by removing `n`,
     instead approximating the value up to scale.
   - Add `cubic` and `quartic` functions
     that prints the details of a cubic and quartic polynomial.
-  - Add a prime factorization function.
   - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil)).
   - Implement the Euclidean algorithm for the GCD.
