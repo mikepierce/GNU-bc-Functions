@@ -94,7 +94,6 @@ more novel functions:
 
 ## Aspirations
 
-  - Change the file extensions to `.b`
   - Incorporate that code from `pi.b` and `primes.b` from the BC source
   - Add a prime factorization function.
   - Separate out “pure” functions from “teacher” functions
