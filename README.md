@@ -52,7 +52,7 @@ Here is a list of the functions this file defines:
 [`fibonacci`](https://en.wikipedia.org/wiki/Fibonacci_sequence)
 `newton`
 `integrate`
-'prime'
+`prime`
 
 Alongside the ubiquitous mathematical functions in this list,
 this file contains implementations of the following:
@@ -97,7 +97,7 @@ Here is a list of the functions this file defines:
     which displays a number `n` in bases 2, 3, …, 36.
   - [Prime Integer Factorization](https://en.wikipedia.org/wiki/Integer_factorization) 
     (`factor(n)`)
-    which displays the prime integer factors of `n`
+    which displays the prime integer factors of `n`.
 
 ## Conventions
 
@@ -123,7 +123,6 @@ Here is a list of the functions this file defines:
     that prints the details of a cubic and quartic polynomial.
   - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil)).
-  - Implement the Euclidean algorithm for the GCD.
 
 ## Allusions
 
