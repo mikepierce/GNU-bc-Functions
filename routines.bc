@@ -38,34 +38,31 @@ define void quadratic(a,b,c) {
     }
 }
 
-# Display the first n rational approximations to the decimal number x
-# obtained by truncating the continued fraction of x
-define void rational(x,n) {
+# Display increasingly better rational approximations 
+# to the decimal number x obtained by truncating its continued fraction
+define void rational(x) {
     auto i,a,h,k,m
     m = x
-    if (x == int(x))
-        print "The number is an integer\n"
+    if (x == int(x)) { print "The number is an integer\n"; return }
 
-    h[0] = int(x)
+    a[0] = int(x)
+    h[0] = a[0]
     k[0] = 1
-    h[1] = int(1/(x-int(x)))*int(x)+1
-    k[1] = int(1/(x-int(x)))
+    x=1/(x-a[0])
 
-    for(i=0; i<=n; ++i){
-        a[i] = int(x)
-        if (i >= 2) {
-            h[i] = a[i]*h[i-1]+h[i-2]
-            k[i] = a[i]*k[i-1]+k[i-2]
-        }
-        if (m == h[i]/k[i]) {
-            n = i
-            print "The number is exactly ", h[i], "/", k[i], " up to scale\n"
-            break
-        }
-        x=1/(x-a[i])
+    a[1] = int(x)
+    h[1] = a[1]*h[0]+1
+    k[1] = a[1]
+    x=1/(x-a[1])
+
+    for(i=1; m!=h[i]/k[i]; ++i){
         print h[i]/k[i], " = ", h[i], "/", k[i], "\n"
+        a[i+1] = int(x)
+        h[i+1] = a[i+1]*h[i]+h[i-1]
+        k[i+1] = a[i+1]*k[i]+k[i-1]
+        x=1/(x-a[i+1])
     }
-    print m/1, " is the number\n"
+    print m/1, " = ", h[i], "/", k[i], " ✓\n"
 }
 
 # Display n expressed in bases 2,3,…,36

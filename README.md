@@ -114,10 +114,9 @@ Here is a list of the functions this file defines:
 
   - Incorporate that code from `pi.b` and `primes.b` from the BC source
   - Add a prime factorization function.
-  - Remove the `n` parameter to `rational`, 
-    instead approximating the input up to scale.
-  - Improve the numerical integration function by removing `n`,
-    instead approximating the value up to scale.
+  - Address issues withe the numerical integration `integrate` function:
+    There must be a way to remove the need for the parameter `n`,
+    Also, I'm concerned this function is inaccurate for large values of |b-a|.
   - Add `cubic` and `quartic` functions
     that prints the details of a cubic and quartic polynomial.
   - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
