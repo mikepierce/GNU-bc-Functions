@@ -79,3 +79,24 @@ define void bases(n) {
     obase = base
 }
 
+# Display the prime integer factorization of n
+define void factor(n) {
+    auto i, s, p
+    s = scale
+    scale = 0
+    for(i=1; n!=1; i++) {
+        p=prime(i)
+        while(n % p == 0) {
+            print p, " "
+            n/=p 
+        }
+    } 
+    print "✓\n"
+    scale = s
+    return
+}
+
+
+
+
+

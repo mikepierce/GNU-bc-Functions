@@ -52,6 +52,7 @@ Here is a list of the functions this file defines:
 [`fibonacci`](https://en.wikipedia.org/wiki/Fibonacci_sequence)
 `newton`
 `integrate`
+'prime'
 
 Alongside the ubiquitous mathematical functions in this list,
 this file contains implementations of the following:
@@ -94,15 +95,17 @@ Here is a list of the functions this file defines:
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
     (`bases(n)`)
     which displays a number `n` in bases 2, 3, …, 36.
+  - [Prime Integer Factorization](https://en.wikipedia.org/wiki/Integer_factorization) 
+    (`factor(n)`)
+    which displays the prime integer factors of `n`
 
 ## Conventions
 
   - Function names ending in `_` are *helper* functions,
     not intended to be called directly.
   - _Some_ functions that return the nth number in a sequence
-    (e.g. `fibonacci`) create an array of the same name as the function
-    containing all previous terms in the sequence
-    necessary to compute the nth term.
+    (e.g. `fibonacci`,  `prime`) create an array of the same name as the function
+    containing all previous terms in the sequence used to compute the nth term.
   - In the file `routines.bc` if a function changes/defines a variable globally, 
     the function `print`s that assignment explicitly.
   - Since bc doesn't accept functions as parameters to other functions,
@@ -113,8 +116,6 @@ Here is a list of the functions this file defines:
 
 ## Aspirations
 
-  - Incorporate that code from `pi.b` and `primes.b` from the BC source
-  - Add a prime factorization function.
   - Address issues withe the numerical integration `integrate` function:
     There must be a way to remove the need for the parameter `n`,
     Also, I'm concerned this function is inaccurate for large values of |b-a|.

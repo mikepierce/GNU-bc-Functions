@@ -186,3 +186,36 @@ define trapezoid_(a,b,n) {
     return (h/2)*( f(a) + 2*sum + f(b) )
 }
 
+################################################################################
+### Number Theory
+
+# Returns the nth prime integer
+define prime(n) {
+    auto i, s 
+    prime[1]=2
+    prime[2]=3
+    for(i=n; prime[i]==0; --i) {}
+    return prime_(i,n)
+}
+
+# Fill in the array of prime numbers prime[]
+# beyond index j, up through k
+define prime_(j,k) {
+    auto i, n, flag, p, s
+    s = scale
+    scale = 0
+    for(i=j+1; i<=k; ++i) {
+        flag=0;
+        for(n=prime[i-1]+2; !flag; n=n+2) {
+            flag=1
+            for(p=1; p<i; ++p) {
+                if (n % prime[p] == 0) {flag=0; break;}
+            }
+            if(flag) {prime[i]=n; break;}
+        }
+    }
+    scale = s
+    return prime[k]
+}
+
+
