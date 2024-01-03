@@ -82,7 +82,7 @@ Here is a list of the functions this file defines:
     of a smooth function `f` near `x` a total of `n` times,
     printing each successive approximation.
     Note that `f` and its derivative `ff` must be globally defined.
-  - Quadratic Polynomial Solver
+  - [Quadratic Polynomial Solver](https://en.wikipedia.org/wiki/Quadratic_equation)
     (`quadratic(a,b,c)`)
     which prints the roots and vertex of a degree-two polynomial
     given its coefficients as input.
@@ -92,19 +92,18 @@ Here is a list of the functions this file defines:
     to a number `x` via its continued fraction.
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
     (`bases(n)`)
-    which display a number `n` expressed in bases 2, 3, …, 36.
+    which displays a number `n` in bases 2, 3, …, 36.
 
 ## Conventions
 
   - Function names ending in `_` are *helper* functions,
     not intended to be called directly.
-  - _Some_ functions that return the _n_th number in a sequence
+  - _Some_ functions that return the nth number in a sequence
     (e.g. `fibonacci`) create an array of the same name as the function
     containing all previous terms in the sequence
-    necessary to compute the _n_th term.
-  - If a function changes/defines a variable globally, 
-    the function must `print` that assignment.
-    An exception to this is if the function defines an array of the same name.
+    necessary to compute the nth term.
+  - In the file `routines.bc` if a function changes/defines a variable globally, 
+    the function `print`s that assignment explicitly.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
     Such a function is named `f`. If there must be two functions,
