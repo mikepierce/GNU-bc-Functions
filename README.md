@@ -87,9 +87,10 @@ Here is a list of the functions this file defines:
     which prints the roots and vertex of a degree-two polynomial
     given its coefficients as input.
   - [Rational Approximation](https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents) 
-    (`rational(x,n)`)
-    which prints the first `n` rational convergents 
-    to a number `x` via its continued fraction.
+    (`rational(x)`)
+    which subsequently better rational approximations to `x` —
+    the convergents of its continued fractions —
+    until finding the first one equal to `x` up to `scale`.
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
     (`bases(n)`)
     which displays a number `n` in bases 2, 3, …, 36.
