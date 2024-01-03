@@ -89,8 +89,8 @@ Here is a list of the functions this file defines:
     given its coefficients as input.
   - [Rational Approximation](https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents) 
     (`rational(x)`)
-    which subsequently better rational approximations to `x` —
-    the convergents of its continued fractions —
+    which displays subsequently better rational approximations to `x` —
+    the convergents of its continued fraction presentation —
     until finding the first one equal to `x` up to `scale`.
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
     (`bases(n)`)
@@ -107,7 +107,7 @@ Here is a list of the functions this file defines:
     (e.g. `fibonacci`,  `prime`) create an array of the same name as the function
     containing all previous terms in the sequence used to compute the nth term.
   - In the file `routines.bc` if a function changes/defines a variable globally, 
-    the function `print`s that assignment explicitly.
+    the function will `print` that variable assignment explicitly.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
     Such a function is named `f`. If there must be two functions,
@@ -116,12 +116,12 @@ Here is a list of the functions this file defines:
 
 ## Aspirations
 
-  - Address issues withe the numerical integration `integrate` function:
-    There must be a way to remove the need for the parameter `n`,
-    Also, I'm concerned this function is inaccurate for large values of |b-a|.
   - Add `cubic` and `quartic` functions
     that prints the details of a cubic and quartic polynomial.
-  - Add a function that finds "algebraic" approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
+  - Address issues withe the numerical integration `integrate` function:
+    There must be a way to remove the need for the parameter `n`,
+    Also, I'm concerned this function is inaccurate for large values of |b – a|.
+  - Add a function that finds constructable algebraic approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil)).
 
 ## Allusions
