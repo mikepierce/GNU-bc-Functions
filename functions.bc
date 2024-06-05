@@ -23,8 +23,8 @@ define pow(x,n) { return e(n*l(x)) }
 ################################################################################
 ### Trigonometry
 
-define radtodeg(x) { return x*(45/a(1)) }
-define degtorad(x) { return x*(a(1)/45) }
+define rad2deg(x) { return x*(45/a(1)) }
+define deg2rad(x) { return x*(a(1)/45) }
 
 define cos(x) { return c(x) }
 define sin(x) { return s(x) }
