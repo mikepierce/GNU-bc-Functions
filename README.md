@@ -19,8 +19,8 @@ Here is a list of the functions this file defines:
 `log`
 `logb`
 [`pow`](https://en.wikipedia.org/wiki/Exponentiation)
-`radtodeg`
-`degtorad`
+`rad2deg`
+`deg2rad`
 `cos`
 `sin`
 `tan`
@@ -98,6 +98,18 @@ Here is a list of the functions this file defines:
   - [Prime Integer Factorization](https://en.wikipedia.org/wiki/Integer_factorization) 
     (`factor(n)`)
     which displays the prime integer factors of `n`.
+  - [Rectangular/Polar Conversion](https://en.wikipedia.org/wiki/Polar_coordinate_system) 
+    (`rect2pol(x,y)`) and (`pol2rect(r,θ)`)
+    which convert two-dimensional rectangular coordinates 
+    to polar coordinates and vice-versa respectively.
+  - [Rectilinear/Cylindrical Conversion](https://en.wikipedia.org/wiki/Cylindrical_coordinate_system) 
+    (`rect2cyl(x,y,z)`) and (`cyl2rect(r,θ,z)`)
+    which convert three-dimensional rectilinear coordinates 
+    to cylindrical coordinates and vice-versa respectively.
+  - [Rectilinear/Spherical Conversion](https://en.wikipedia.org/wiki/Spherical_coordinate_system) 
+    (`rect2sphere(x,y,z)`) and (`sphere2rect(ρ,θ,φ)`)
+    which convert three-dimensional rectilinear coordinates 
+    to spherical coordinates and vice-versa respectively.
 
 ## Conventions
 

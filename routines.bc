@@ -55,7 +55,7 @@ define void rational(x) {
     k[1] = a[1]
     x=1/(x-a[1])
 
-    for(i=1; m!=h[i]/k[i]; ++i){
+    for (i=1; m!=h[i]/k[i]; ++i) {
         print h[i]/k[i], " = ", h[i], "/", k[i], "\n"
         a[i+1] = int(x)
         h[i+1] = a[i+1]*h[i]+h[i-1]
@@ -84,15 +84,75 @@ define void factor(n) {
     auto i, s, p
     s = scale
     scale = 0
-    for(i=1; n!=1; i++) {
+    for (i=1; n!=1; i++) {
         p=prime(i)
-        while(n % p == 0) {
+        while (n % p == 0) {
             print p, " "
             n/=p 
         }
     } 
     print "✓\n"
     scale = s
+    return
+}
+
+# Convert 2-dimensional rectangular coordinates to polar coordinates
+define void rect2polar(x,y) {
+    auto r, theta
+    r = sqrt(x^2+y^2)
+    theta = atan2(y,x)
+    print "    r = ", r, "\n"
+    print "theta = ", theta, "\n"
+    return
+}
+
+# Convert 2-dimensional polar coordinates to rectangular coordinates
+define void polar2rect(r,theta) {
+    auto x, y
+    x = r*c(theta)
+    y = r*s(theta)
+    print "x = ", x, "\n"
+    print "y = ", y, "\n"
+    return
+}
+
+# Convert 3-dimensional rectilinear coordinates to cylindrical coordinates
+define void rect2cyl(x,y,z) {
+    rect2polar(x,y)
+    print "z = ", z, "\n"
+    return
+}
+
+# Convert 3-dimensional cylindrical coordinates to rectilinear coordinates
+define void cyl2rect(r,theta,z) {
+    polar2rect(r,theta)
+    print "z = ", z, "\n"
+    return
+}
+
+# Convert 3-dimensional rectilinear coordinates to spherical coordinates
+# This follows the "mathematical" conventions for spherical coordinates
+define void rect2sphere(x,y,z) {
+    auto rho, theta, phi
+    rho = sqrt(x^2+y^2+z^2)
+    theta = atan2(y,x)
+    phi = arccos(z/rho)
+    print "  rho = ", rho, "\n"
+    print "theta = ", theta, "\n"
+    print "  phi = ", phi, "\n"
+    return
+}
+
+# Convert 3-dimensional spherical coordinates to rectilinear coordinates
+# This follows the "mathematical" conventions for spherical coordinates
+define void sphere2rect(rho,theta,phi) {
+    auto x, y, z
+    x = r*s(theta)*c(theta)
+    y = r*s(theta)*s(theta)
+    z = r*c(theta)
+    print "x = ", x, "\n"
+    print "y = ", y, "\n"
+    print "z = ", z, "\n"
     return
 }
 
