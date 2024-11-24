@@ -47,21 +47,22 @@ define void quadratic(a,b,c) {
     }
 }
 
-# Display increasingly better rational approximations 
+# Print increasingly better rational approximations 
 # to the decimal number x obtained by truncating its continued fraction
 define void rational(x) {
     auto i,a,h,k,m
     m = x
-    if (x == int(x)) { print "The number is an integer\n"; return }
 
     a[0] = int(x)
     h[0] = a[0]
     k[0] = 1
+    if (m == h[0]/k[0]) { print h[0]/k[0], " is an integer ✓\n"; return }
     x=1/(x-a[0])
 
     a[1] = int(x)
     h[1] = a[1]*h[0]+1
     k[1] = a[1]
+    if (m == h[1]/k[1]) { print h[1]/k[1], " = ", h[1], "/", k[1], " and is rational ✓\n"; return }
     x=1/(x-a[1])
 
     for (i=1; m!=h[i]/k[i]; ++i) {
