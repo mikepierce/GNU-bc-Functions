@@ -164,3 +164,58 @@ define void sphere2rect(rho,theta,phi) {
     return
 }
 
+# Print the sequence of positive integers that results from 
+# iteratively applying the function prescribed by the Collatz Conjecture.
+define void collatz(n) { 
+    auto s
+    s = scale
+    scale = 0
+    collatz_(n)
+    scale = s
+}
+
+# Recursive helper function to collatz()
+define collatz_(n) {
+    if(n==1)
+        return 1
+    print n, " → "; 
+    if (n%2) {
+        return collatz_(3*n+1);
+    } else {
+        return collatz_(n/2);
+    }
+}
+
+# Print every way that n can be written as a sum 
+# of consecutive positive integers.
+define void sumofpositiveintegers(n) { sumofpowers(n,1) }
+
+# Print every way that m can be written as a sum 
+# of nth powers of consecutive positive integers.
+define void sumofpowers(m,n) {
+    auto s, i, j, cap, powers[]
+    print "n = ", n, "\n"
+    cap = pow(m,1/n)+1
+    s = scale
+    scale = 0
+    for (i=1; i<cap; i++) {
+        powers[i] = i^n
+    }
+    i = j = sum = 1;
+    while (i<cap) {
+        if (sum >= m) {
+            if (sum == m) {
+                print m, " = ", i, "ⁿ + … + ", j, "ⁿ\n"
+            } 
+            sum -= powers[i];
+            i+=1;
+        } else {
+            j+=1;
+            sum += powers[j];
+        }
+    }
+    print " ✓\n"
+    scale = s
+}
+
+sumofpowers(2025,1)

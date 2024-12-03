@@ -114,6 +114,14 @@ Here is a list of the functions this file defines:
     (`rect2sphere(x,y,z)`) and (`sphere2rect(ρ,θ,φ)`)
     which convert three-dimensional rectilinear coordinates 
     to spherical coordinates and vice-versa respectively.
+  - [Collazt (Hailstone) Sequence](https://en.wikipedia.org/wiki/Collatz_conjecture) 
+    (`collatz(n)`)
+    which prints the hailstone sequence obtained
+    by iteratively applying the transformation prescribed by the Collatz Conjecture.
+  - Sum of Consecutive Powers
+    (`sumofpowers(n,p)`)
+    which prints every way that `n` can be expressed as a sum
+    of consecutive `p`th itegral powers.
 
 ## Conventions
 
