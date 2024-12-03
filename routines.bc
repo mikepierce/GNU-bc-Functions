@@ -217,5 +217,3 @@ define void sumofpowers(m,n) {
     print " ✓\n"
     scale = s
 }
-
-sumofpowers(2025,1)
