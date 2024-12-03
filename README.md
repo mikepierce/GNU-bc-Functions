@@ -121,7 +121,7 @@ Here is a list of the functions this file defines:
   - Sum of Consecutive Powers
     (`sumofpowers(n,p)`)
     which prints every way that `n` can be expressed as a sum
-    of consecutive `p`th itegral powers.
+    of consecutive `p`th integral powers.
 
 ## Conventions
 
