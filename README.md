@@ -15,12 +15,14 @@ Here is a list of the functions this file defines:
 [`abs`](https://en.wikipedia.org/wiki/Absolute_value)
 [`heavyside`](https://en.wikipedia.org/wiki/Heaviside_step_function)
 [`int`](https://en.wikipedia.org/wiki/Truncation)
+[`frac`](https://en.wikipedia.org/wiki/Truncation)
 `ln`
 `log`
 `logb`
 [`pow`](https://en.wikipedia.org/wiki/Exponentiation)
 `rad2deg`
 `deg2rad`
+[`deg2dms`](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
 `cos`
 `sin`
 `tan`
