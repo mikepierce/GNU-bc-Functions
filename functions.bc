@@ -29,11 +29,13 @@ define pow(x,n) { return e(n*l(x)) }
 define rad2deg(x) { return x*(45/a(1)) }
 define deg2rad(x) { return x*(a(1)/45) }
 define void deg2dms(x) { 
-    auto d, m, s
     d = int(x)
     m = abs(int(frac(x)*60))
     s = abs(frac(frac(x)*60)*60)
     print d,"°",m,"′",s,"″\n"
+}
+define dms2deg(d,m,s) { 
+    return d + (m/60) + (s/3600)
 }
 
 define cos(x) { return c(x) }
