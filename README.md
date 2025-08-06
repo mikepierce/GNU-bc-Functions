@@ -22,8 +22,8 @@ Here is a list of the functions this file defines:
 [`pow`](https://en.wikipedia.org/wiki/Exponentiation)
 `rad2deg`
 `deg2rad`
-[`deg2dms`](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
-[`dms2deg`](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
+[`dd2dms`](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
+[`dms2dd`](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
 `cos`
 `sin`
 `tan`
