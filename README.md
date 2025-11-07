@@ -160,5 +160,4 @@ Here is a list of the functions this file defines:
   - [GNU bc Manual](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
   - [Library of bc function on phodd.net](http://phodd.net/gnu-bc/)
   - [Keith Matthews' number theory functions](http://www.numbertheory.org/gnubc/gnubc.html)
-  - ["math and bitcoin tools in gnu bc and bash"](https://github.com/fivepiece/btc-bash-ng)
 
