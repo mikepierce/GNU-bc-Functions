@@ -157,9 +157,13 @@ Here is a list of the functions this file defines:
 
   - Add `cubic` and `quartic` functions
     that prints the details of a cubic and quartic polynomial.
+  - Replace all instances of `10` with `A` per phodd's note.
+  - Update the **Conventions** section to function as a CONTRIBUTING.md for anyone who wants to contribute.
+  - Replace the discrete combinatorics functions (factorial, pick, choose, etc)
+    with continuous (analytic?) analogous so I can remove the PRINT statements.
   - Address issues with the numerical integration `integrate` function:
     There must be a way to remove the need for the parameter `n`,
-    Also, I'm concerned this function is inaccurate for large values of |b – a|.
+    Also, I'm concerned this function is inaccurate for large values of |b–a|.
   - Add a function that finds constructable algebraic approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil)).
 
