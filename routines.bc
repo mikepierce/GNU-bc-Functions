@@ -17,6 +17,15 @@ define pythagquadruple(m,n,p,q) {
     return m*m+n*n+p*p+q*q
 }
 
+# Prints the angle x, presumed as a decimal number of degrees,
+# in DMS (degrees, minutes, seconds) notation
+define void dd2dms(x) { 
+    d = int(x)
+    m = abs(int(frac(x)*60))
+    s = abs(frac(frac(x)*60)*60)
+    print d,"°",m,"′",s,"″\n"
+}
+
 # Iteratively applies Newton's Method n times, printing each result,
 # with initial guess x (parameter) and (global) functions f and ff=f'
 define void newtoniter(x,n) { 
