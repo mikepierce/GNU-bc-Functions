@@ -217,3 +217,17 @@ define void sumofpowers(m,n) {
     print " ✓\n"
     scale = s
 }
+
+# Print n uniquely as a sum of non-adjacent Fibonacci numbers
+define void zeckendorf(n) {
+    auto  f
+    f = fibonacci(int(l(n*sqrt(5)+1/2)/l((1+sqrt(5))/2)))
+    print f
+    if(n-f) {
+        print " + "
+        zeckendorf(n-f)
+    } else {
+        print " ✓\n"
+    }
+}
+

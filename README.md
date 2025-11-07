@@ -125,6 +125,9 @@ Here is a list of the functions this file defines:
     (`sumofpowers(n,p)`)
     which prints every way that `n` can be expressed as a sum
     of consecutive `p`th integral powers.
+  - [Zeckendorf Presentation](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
+    (`zeckendorf(n)`)
+    which prints the unique sum of non-adjacent Fibonacci numbers equal to `n`.
 
 ## Conventions
 
