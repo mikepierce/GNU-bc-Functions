@@ -6,6 +6,12 @@ The functions are split into two files:
 `functions.bc` containing simple “pure” functions, 
 and `routines.bc` containing functions 
 that I’ve found useful in practice as a math instructor.
+Generically, the stuff in `functions.bc` print nothing, only returning values,
+and the stuff in `routines.bc` print out information.
+Note that files like these can be loaded automatically by bc 
+by setting this environment variable:
+
+    export BC_ENV_ARGS="-lq /PATH/TO/functions.bc /PATH/TO/routines.bc"
 
 ## `functions.bc`
 

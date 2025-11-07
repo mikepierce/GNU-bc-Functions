@@ -28,10 +28,7 @@ define pow(x,n) { return e(n*l(x)) }
 
 define rad2deg(x) { return x*(45/a(1)) }
 define deg2rad(x) { return x*(a(1)/45) }
-define dms2dd(d,m,s) { 
-    return d + (m/60) + (s/3600)
-}
-
+define dms2dd(d,m,s) { return d + (m/60) + (s/3600) }
 define cos(x) { return c(x) }
 define sin(x) { return s(x) }
 define tan(x) { return s(x)/c(x) }
@@ -152,7 +149,6 @@ define fibonacci(n) {
 # Recursively applies Newton's Method with initial parameter x
 # and (global) functions f and ff=f' until the process converges up to scale
 define newton(x) { 
-    print x, "\n"
     if (f(x)/9)
         return newton(x - f(x)/ff(x))
     return x
