@@ -196,26 +196,22 @@ define collatz_(n) {
     }
 }
 
-# Print every way that n can be written as a sum 
-# of consecutive positive integers.
-define void sumofpositiveintegers(n) { sumofpowers(n,1) }
-
 # Print every way that m can be written as a sum 
 # of powers of consecutive positive integers.
 define void sumofpowers(m) {
-    auto s, n, i, j, cap, powers[]
+    auto s, n, i, j, cap, powers[], any
     s = scale
     for(n=1; 2^n<m; n++) {
         cap = pow(m,1/n)+1
         scale = 0
-        print "For n = ", n, ",\n"
         for (i=1; i<cap; i++) {
             powers[i] = i^n
         }
-        i = j = sum = 1
+        i = j = sum = any = 1
         while (j<cap) {
             if (sum >= m) {
                 if (sum == m) {
+                    if(any) {print "For n = ", n, "\n"; any = 0; }
                     print "  ", m, " = ", i, "ⁿ + ⋯  + ", j, "ⁿ\n"
                 } 
                 sum -= powers[i]
