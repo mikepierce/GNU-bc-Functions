@@ -13,7 +13,7 @@ define heavyside(x) { return (x>0) }
 define int(x) { auto s; s=scale; scale=0; x/=1; scale=s; return x; }
 
 # Return the fractional-part of a number
-define frac(x) { return x-int(x); }
+define frac(x) { return x-int(x) }
 
 ################################################################################
 ### Logarithms & Exponentials

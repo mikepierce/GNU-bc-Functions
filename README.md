@@ -138,35 +138,40 @@ Here is a list of the functions this file defines:
     (`zeckendorf(n)`)
     which prints the unique sum of non-adjacent Fibonacci numbers equal to `n`.
 
-## Conventions
+## Conventions 
 
-  - Function names ending in `_` are *helper* functions,
+  - If a function in `routines.bc` updates/defines a variable globally, 
+    it will `print` that variable assignment explicitly.
+  - Semicolons (`;`) are only used to delimit multiple statements on the same line.
+  - Since bc doesn't accept functions as parameters to other functions,
+    any functions that morally should be a parameter must be defined globally.
+    Such a function will be named `f`, and its derivative will be named `ff`.
+  - Function names ending in `_` are *helper* functions
     not intended to be called directly.
   - _Some_ functions that return the nth number in a sequence
     (e.g. `fibonacci`, `prime`) create an array of the same name as the function
     containing all previous terms in the sequence used to compute the nth term.
-  - In the file `routines.bc` if a function changes/defines a variable globally, 
-    the function should `print` that variable assignment explicitly.
-  - Since bc doesn't accept functions as parameters to other functions,
-    any functions that morally should be a parameter must be defined globally.
-    Such a function is named `f`. If there must be two functions,
-    the other will be named `g`. If a function wants to know the derivative of `f`,
-    it'll expect that derivative to be named `ff` (e.g. `newton`).
+  - There are certain things bc is not designed for
+    — linear algebra, statistics, and complex arithmetic among others —
+    and should not be implemented in bc.
+    These, if one so desires, should be implemented upstream 
+    within a fork of the bc program itself.
 
 ## Aspirations
 
   - Add `cubic` and `quartic` functions
     that prints the details of a cubic and quartic polynomial.
-  - Update the **Conventions** section to function as a CONTRIBUTING.md for anyone who wants to contribute.
+  - Update the **Conventions** section to function as a CONTRIBUTING.md 
+    for anyone who wants to contribute.
   - Replace the discrete combinatorics functions (factorial, pick, choose, etc)
     with continuous (analytic?) analogous so I can remove the PRINT statements.
-    Relatedly, `pow` breaks on zero (`pow(0, 1/n)`) 
-    and could be made more robust.
+    Related: `pow` breaks on zero (`pow(0, 1/n)`) and could be made more robust.
   - Address issues with the numerical integration `integrate` function:
     There must be a way to remove the need for the parameter `n`,
     Also, I'm concerned this function is inaccurate for large values of |b–a|.
   - Add a function that finds constructable algebraic approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
   - Add a numerical derivative function (see [this](https://en.wikipedia.org/wiki/Five-point_stencil)).
+  - Browse the [NIST Digital Library of Mathematical Functions](https://dlmf.nist.gov) for thoughts.
 
 ## Allusions
 

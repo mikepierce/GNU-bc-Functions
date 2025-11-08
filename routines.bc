@@ -188,11 +188,11 @@ define void collatz(n) {
 define collatz_(n) {
     if(n==1)
         return 1
-    print n, " → "; 
+    print n, " → " 
     if (n%2) {
-        return collatz_(3*n+1);
+        return collatz_(3*n+1)
     } else {
-        return collatz_(n/2);
+        return collatz_(n/2)
     }
 }
 
@@ -212,17 +212,17 @@ define void sumofpowers(m) {
         for (i=1; i<cap; i++) {
             powers[i] = i^n
         }
-        i = j = sum = 1;
+        i = j = sum = 1
         while (j<cap) {
             if (sum >= m) {
                 if (sum == m) {
                     print "  ", m, " = ", i, "ⁿ + ⋯  + ", j, "ⁿ\n"
                 } 
-                sum -= powers[i];
-                i+=1;
+                sum -= powers[i]
+                i+=1
             } else {
-                j+=1;
-                sum += powers[j];
+                j+=1
+                sum += powers[j]
             }
         }
         scale = s
