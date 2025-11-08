@@ -5,9 +5,9 @@ My working collection of functions for
 The functions are split into two files:
 `functions.bc` containing simple “pure” functions, 
 and `routines.bc` containing functions 
-that I’ve found useful in practice as a math instructor.
-Generically, the stuff in `functions.bc` print nothing, only returning values,
-and the stuff in `routines.bc` print out information.
+that I’ve found useful in practice as an instructor.
+Generically, the functions in `functions.bc` print nothing and return a value,
+and the functions in `routines.bc` print out stuff.
 Note that files like these can be loaded automatically by bc 
 by setting this environment variable:
 
@@ -130,10 +130,10 @@ Here is a list of the functions this file defines:
     (`collatz(n)`)
     which prints the hailstone sequence obtained
     by iteratively applying the transformation prescribed by the Collatz Conjecture.
-  - Sum of Consecutive Powers
-    (`sumofpowers(n,p)`)
+  - [Sum of Consecutive Powers](https://en.wikipedia.org/wiki/Sums_of_powers)
+    (`sumofpowers(n)`)
     which prints every way that `n` can be expressed as a sum
-    of consecutive `p`th integral powers.
+    of consecutive integral powers.
   - [Zeckendorf Presentation](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
     (`zeckendorf(n)`)
     which prints the unique sum of non-adjacent Fibonacci numbers equal to `n`.
@@ -143,10 +143,10 @@ Here is a list of the functions this file defines:
   - Function names ending in `_` are *helper* functions,
     not intended to be called directly.
   - _Some_ functions that return the nth number in a sequence
-    (e.g. `fibonacci`,  `prime`) create an array of the same name as the function
+    (e.g. `fibonacci`, `prime`) create an array of the same name as the function
     containing all previous terms in the sequence used to compute the nth term.
   - In the file `routines.bc` if a function changes/defines a variable globally, 
-    the function will `print` that variable assignment explicitly.
+    the function should `print` that variable assignment explicitly.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
     Such a function is named `f`. If there must be two functions,
@@ -161,6 +161,8 @@ Here is a list of the functions this file defines:
   - Update the **Conventions** section to function as a CONTRIBUTING.md for anyone who wants to contribute.
   - Replace the discrete combinatorics functions (factorial, pick, choose, etc)
     with continuous (analytic?) analogous so I can remove the PRINT statements.
+    Relatedly, `pow` breaks on zero (`pow(0, 1/n)`) 
+    and could be made more robust.
   - Address issues with the numerical integration `integrate` function:
     There must be a way to remove the need for the parameter `n`,
     Also, I'm concerned this function is inaccurate for large values of |b–a|.

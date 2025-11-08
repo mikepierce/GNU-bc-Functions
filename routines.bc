@@ -200,31 +200,33 @@ define collatz_(n) {
 define void sumofpositiveintegers(n) { sumofpowers(n,1) }
 
 # Print every way that m can be written as a sum 
-# of nth powers of consecutive positive integers.
-define void sumofpowers(m,n) {
-    auto s, i, j, cap, powers[]
-    print "n = ", n, "\n"
-    cap = pow(m,1/n)+1
+# of powers of consecutive positive integers.
+define void sumofpowers(m) {
+    auto s, n, i, j, cap, powers[]
     s = scale
-    scale = 0
-    for (i=1; i<cap; i++) {
-        powers[i] = i^n
-    }
-    i = j = sum = 1;
-    while (i<cap) {
-        if (sum >= m) {
-            if (sum == m) {
-                print m, " = ", i, "ⁿ + … + ", j, "ⁿ\n"
-            } 
-            sum -= powers[i];
-            i+=1;
-        } else {
-            j+=1;
-            sum += powers[j];
+    for(n=1; 2^n<m; n++) {
+        cap = pow(m,1/n)+1
+        scale = 0
+        print "For n = ", n, ",\n"
+        for (i=1; i<cap; i++) {
+            powers[i] = i^n
         }
+        i = j = sum = 1;
+        while (j<cap) {
+            if (sum >= m) {
+                if (sum == m) {
+                    print "  ", m, " = ", i, "ⁿ + ⋯  + ", j, "ⁿ\n"
+                } 
+                sum -= powers[i];
+                i+=1;
+            } else {
+                j+=1;
+                sum += powers[j];
+            }
+        }
+        scale = s
     }
-    print " ✓\n"
-    scale = s
+    print "✓\n"
 }
 
 # Print n uniquely as a sum of non-adjacent Fibonacci numbers
