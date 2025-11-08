@@ -19,7 +19,7 @@ define frac(x) { return x-int(x); }
 ### Logarithms & Exponentials
 
 define ln(x) { return l(x) }
-define log(x) { return l(x)/l(10) }
+define log(x) { return l(x)/l(A) }
 define logb(x,b) { return l(x)/l(b) }
 define pow(x,n) { return e(n*l(x)) }
 
@@ -157,7 +157,7 @@ define newton(x) {
 # Numerically calculate the definite integral 
 # of f (global) from a to b 
 define integrate(a,b) {
-    return boole_(a,b,(b-a)*(e((scale/5)*l(10))))
+    return boole_(a,b,(b-a)*(e((scale/5)*l(A))))
 }
 
 # Composite Boole's Rule

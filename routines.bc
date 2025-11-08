@@ -86,12 +86,13 @@ define void rational(x) {
 
 # Display n expressed in bases 2,3,…,36
 define void bases(n) {
-    auto i,base
+    auto i, base
     base = obase
     for (i=2; i<=36; i++) {
-        obase = 10
-        if (i<10) print " "
-        print "  ", i, " | "
+        obase = A
+        if (i<A) print " "
+        print "  ", i, " |"
+        if (i<H) print " "
         obase = i
         print n, "\n"
     }
