@@ -204,21 +204,18 @@ define void sumofpowers(m) {
     for(n=1; 2^n<m; n++) {
         cap = pow(m,1/n)+1
         scale = 0
-        for(i=1; i<cap; i++) {
+        for(i=1; i<cap; i++)
             powers[i] = i^n
-        }
         i = j = sum = any = 1
-        while(j<cap) {
+        while(j < cap) {
             if(sum >= m) {
                 if(sum == m) {
                     if(any) {print "For n = ", n, "\n"; any = 0; }
                     print "  ", m, " = ", i, "ⁿ + ⋯  + ", j, "ⁿ\n"
                 } 
-                sum -= powers[i]
-                i += 1
+                sum -= powers[i++]
             } else {
-                j += 1
-                sum += powers[j]
+                sum += powers[++j]
             }
         }
         scale = s

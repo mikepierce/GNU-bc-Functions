@@ -143,13 +143,12 @@ Here is a list of the functions this file defines:
 
   - If a function in `routines.bc` updates/defines a variable globally, 
     it will `print` that variable assignment explicitly.
-  - Semicolons (`;`) are only used to delimit multiple statements on the same line.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
     Such a function will be named `f`.
   - Function names ending in `_` are *helper* functions
     not intended to be called directly.
-  - _Some_ functions that return the nth number in a sequence
+  - Some functions that return the nth number in a sequence
     (e.g. `fibonacci`, `prime`) create an array of the same name as the function
     containing all previous terms in the sequence used to compute the nth term.
   - There are certain things bc is not designed for
@@ -160,11 +159,8 @@ Here is a list of the functions this file defines:
 
 ## Aspirations
 
-  - Add `cubic` and `quartic` functions
-    that prints the details of a cubic and quartic polynomial.
-  - Update the **Conventions** section to function as a CONTRIBUTING.md for anyone who wants to contribute.
-  - Replace the discrete combinatorics functions (factorial, pick, choose, etc)
-    with continuous (analytic?) analogous so I can remove the PRINT statements.
+  - Add `cubic` and `quartic` functions that prints the details of a cubic and quartic polynomial.
+  - Replace the discrete combinatorics functions (factorial, pick, choose, etc) with continuous (analytic?) analogous so I can remove the PRINT statements.
   - Add a function that finds constructable algebraic approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
   - Browse the [NIST Digital Library of Mathematical Functions](https://dlmf.nist.gov) for thoughts.
 
