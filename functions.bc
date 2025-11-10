@@ -3,8 +3,8 @@
 ################################################################################
 ### Helpful Constants and Functions
 
-pi=4*a(1)
-ex=e(1)
+pi = 4*a(1)
+ex = e(1)
 define sgn(x) { if(x>0) return 1; if(x<0) return -1; }
 define abs(x) { return sgn(x)*x }
 define heavyside(x) { return (x>0) }
@@ -39,7 +39,7 @@ define arccos(x) {
     pi = 4*a(1)
     if(x == 1) return 0
     if(x == -1) return pi 
-    return pi/2-a(x/sqrt(1-(x^2)))
+    return pi/2 - a(x/sqrt(1-(x^2)))
 }
 define arcsin(x) { 
     pi = 4*a(1)
@@ -81,13 +81,13 @@ define arcoth(x) { return artanh(1/x) }
 
 define factorial(n) {
     auto i
-    if ( (n < 0) || (int(n) != n) ) {
+    if((n<0) || (int(n)!= n)) {
         print "Error: factorials defined for positive integers only\n"
         return
     }
     factorial[0] = factorial[1] = 1
-    for (i=n; factorial[i] == 0; --i) {}
-    for (++i; i<=n; ++i)
+    for(i=n; factorial[i]==0; --i) {}
+    for(++i; i<=n; ++i)
         factorial[i] = i*factorial[i-1]
     return factorial[n]
 }
@@ -95,23 +95,23 @@ define factorial(n) {
 # Return nPk, the number of ways to permute k of n objects
 define pick(n,k) {
     auto i, r
-    if ( (n < 0) || (k < 0) || (int(n) != n) || (int(k) != k) ) {
+    if((n<0) || (k<0) || (int(n)!=n) || (int(k)!=k) ) {
         print "Error: permutations defined for positive integers only\n"
         return
     }
-    r = n-k
-    for (i=1; n > r; --n)
-        i*=n
+    r = n - k
+    for(i=1; n>r; --n)
+        i *= n
     return i
 }
 
 # Return nCk, the number of ways to choose k of n objects
 define choose(n,k) {
-    if ( (n < 0) || (k < 0) || (int(n) != n) || (int(k) != k) ) {
+    if((n<0) || (k<0) || (int(n)!=n) || (int(k)!=k)) {
         print "Error: combinations defined for positive integers only\n"
         return
     }
-    if ( n*(n+1)/2 + k >= 2^24 ) {
+    if(n*(n+1)/2 + k >= 2^24) {
         return int(factorial(n)/(factorial(n-k)*factorial(k)))
     }
     return choose_(n,k)
@@ -120,10 +120,10 @@ define choose(n,k) {
 # Dynamic, recursive helper function for choose(n,k)
 define choose_(n,k) {
     auto i
-    if ( (k == 0) || (k == n) )
+    if((k==0) || (k==n))
         return 1
     i = n*(n+1)/2 + k
-    if ( choose[i] != 0)
+    if(choose[i] != 0)
         return choose[i]
     choose[i] = choose_(n-1,k) + choose_(n-1,k-1)
     return choose[i]
@@ -132,13 +132,13 @@ define choose_(n,k) {
 # Return the nth Fibonacci number
 define fibonacci(n) {
     auto i
-    if ( (n < 1) || (int(n) != n) ) {
+    if((n<1) || (int(n)!=n)) {
         print "Error: Fibonacci numbers indexed by positive integers\n"
         return
     }
     fibonacci[1] = fibonacci[2] = 1
-    for (i=n; fibonacci[i] == 0; --i) {}
-    for (++i; i<=n; ++i)
+    for(i=n; fibonacci[i]==0; --i) {}
+    for(++i; i<=n; ++i)
         fibonacci[i] = fibonacci[i-1] + fibonacci[i-2]
     return fibonacci[n]
 }
@@ -200,8 +200,8 @@ define boole_(a,b) {
 # Returns the nth prime integer
 define prime(n) {
     auto i, s 
-    prime[1]=2
-    prime[2]=3
+    prime[1] = 2
+    prime[2] = 3
     for(i=n; prime[i]==0; --i) {}
     return prime_(i,n)
 }
@@ -213,11 +213,11 @@ define prime_(j,k) {
     s = scale
     scale = 0
     for(i=j+1; i<=k; ++i) {
-        flag=0;
+        flag = 0;
         for(n=prime[i-1]+2; !flag; n=n+2) {
-            flag=1
+            flag = 1
             for(p=1; p<i; ++p) {
-                if (n % prime[p] == 0) {flag=0; break;}
+                if(n % prime[p] == 0) {flag=0; break;}
             }
             if(flag) {prime[i]=n; break;}
         }
