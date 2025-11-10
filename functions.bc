@@ -146,47 +146,53 @@ define fibonacci(n) {
 ################################################################################
 ### Calculus
 
-# Recursively applies Newton's Method with initial parameter x
-# and (global) functions f and ff=f' until the process converges up to scale
+# Returns the derivative of f (global) at x
+# using a finite central distance with eight points
+define derivative(x) {
+    auto h, d
+    h = A^-scale
+    scale *= 2
+    d = (3*f(x-4*h)-32*f(x-3*h)+168*f(x-2*h)-672*f(x-h)+672*f(x+h)-168*f(x+2*h)+32*f(x+3*h)-3*f(x+4*h))/(840*h)
+    scale /= 2
+    return d/1
+}
+
+# Recursively applies Newton's Method 
+# with initial parameter x and (global) function f 
+# until the process converges up to scale
 define newton(x) { 
     if (f(x)/9)
-        return newton(x - f(x)/ff(x))
+        return newton(x - f(x)/derivative(x))
     return x
 }
 
-# Numerically calculate the definite integral 
-# of f (global) from a to b 
-define integrate(a,b) {
-    return boole_(a,b,(b-a)*(e((scale/5)*l(A))))
+# Returns the definite integral of f (global) between a and b
+define integral(a,b) {
+    auto i
+    scale *= 2
+    i = integral_(a,b,0)
+    scale /= 2
+    return i/1
 }
 
-# Composite Boole's Rule
-# The Definite Integral of f from a to b using n subdivisions
-define boole_(a,b,n) {
-    auto h, i, left, mid, right, sum
-    h = (b-a)/(4*n)
-    right=f(a)
-    for (i=a+4*h; i<=b; i+=4*h) {
-        left = right
-        mid[1] = f(i-3*h)
-        mid[2] = f(i-2*h)
-        mid[3] = f(i-h)
-        right = f(i)
-        sum += 7*left+32*mid[1]+12*mid[2]+32*mid[3]+7*right
-    }
-    return 2*sum*h/45
+# Recursive helper function for integral(a,b)
+define integral_(a,b,try) {
+    auto left, midpoint, right
+    midpoint = (a+b)/2
+    left = boole_(a,midpoint)
+    right = boole_(midpoint,b)
+    if(abs(left + right - try) < e(-l(A) * scale/2))
+        return left + right
+    return integral_(a,midpoint,left) + integral_(midpoint,b,right)
 }
 
-### Trapezoid Rule 
-# The Definite Integral of f from a to b using n subdivisions
-define trapezoid_(a,b,n) {
-    auto h, i, sum
-    h = (b-a)/n
-    for (i=1; i<n; i++) {
-        sum += f(a+i*h)
-    }
-    return (h/2)*( f(a) + 2*sum + f(b) )
+# Boole's rule for approximate integration
+define boole_(a,b) {
+    auto h
+    h = (b-a)/4
+    return 2*(7*f(a)+32*f(a+h)+12*f(a+2*h)+32*f(a+3*h)+7*f(b))*h/45
 }
+
 
 ################################################################################
 ### Number Theory
