@@ -34,7 +34,7 @@ define void newtoniter(x,n) {
         print "n=", i++, " | ", x, "\n"
 }
 
-# Print the roots and vertex coordinates of ax^2+bx+c
+# Print the roots and vertex coordinates of ax²+bx+c
 define void quadratic(a,b,c) {
     print "For vertex (h,k) and roots r[1] and r[2],\n"
 
@@ -54,6 +54,21 @@ define void quadratic(a,b,c) {
         print "r[1] = ", r[1], "\n"
         print "r[2] = ", r[2], "\n"
     }
+}
+
+# Print the roots and local extrema coordinates of ax³+bx²+cx+d
+define void cubic(a,b,c,d) {
+    print "For inflection point at i,\n"
+    print "local extrema at h[1] and h[2],\n"
+    print "and roots r[1] and r[2] and r[3],\n"
+}
+
+# Print the roots and local extrema coordinates of ax⁴+bx³+cx²+dx+e
+define void quartic(a,b,c,d,e) {
+    #print "For TK jerk points at ,\n"
+    print "For inflection points at i[1] and i[2],\n"
+    print "local extrema at h[1] and h[2] and h[3],\n"
+    print "and roots r[1] and r[2] and r[3] and r[4],\n"
 }
 
 # Print increasingly better rational approximations 
