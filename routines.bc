@@ -71,10 +71,26 @@ define void quartic(a,b,c,d,e) {
     print "and roots r[1] and r[2] and r[3] and r[4],\n"
 }
 
+### WIP
+# # Print the first n partial denominators 
+# # of the simple continued fraction of x
+# define void contfrac(x,n) {
+#     auto i
+#     for(i=0; i<n; i++) {
+#         b[i] = int(x)
+#         # print "b[", i, "] = ", b[i], "\n"
+#         print b[i], ", "
+#         if(abs(x-b[i])<A^(-scale+1)) {
+#             break
+#         }
+#         x=1/(x-b[i])
+#     }
+# }
+
 # Print increasingly better rational approximations 
 # to the decimal number x obtained by truncating its continued fraction
 define void rational(x) {
-    auto i,a,h,k,m
+    auto i, a[], h[], k[] ,m
     m = x
 
     a[0] = int(x)
