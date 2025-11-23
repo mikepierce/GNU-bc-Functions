@@ -1,7 +1,7 @@
 ### routines.bc
 
 # Print the Pythagorean triple generated 
-# by parameters m and n, and return the hypotenuse
+# by parameters m and n, and return the hypotenuse.
 define pythagtriple(m,n) {
     print abs(n*n-m*m), "\n"
     print abs(2*m*n), "\n"
@@ -9,7 +9,7 @@ define pythagtriple(m,n) {
 }
 
 # Print the Pythagorean quadruple generated 
-# by parameters m, n, p, and q, and return the hypotenuse
+# by parameters m, n, p, and q, and return the hypotenuse.
 define pythagquadruple(m,n,p,q) {
     print abs(n*n+m*m-p*p-q*q), "\n"
     print abs(2*(m*q+n*p)), "\n"
@@ -18,7 +18,7 @@ define pythagquadruple(m,n,p,q) {
 }
 
 # Prints the angle x, presumed as a decimal number of degrees,
-# in DMS (degrees, minutes, seconds) notation
+# in DMS (degrees, minutes, seconds) notation.
 define void dd2dms(x) { 
     d = int(x)
     m = abs(int(frac(x)*60))
@@ -27,14 +27,14 @@ define void dd2dms(x) {
 }
 
 # Iteratively applies Newton's Method n times, printing each result,
-# with initial guess x (parameter) and (global) function f 
+# with initial guess x and (global) function f.
 define void newtoniter(x,n) { 
     auto i
     for(i=0; i<=n; x -= f(x)/derivative(x))
         print "n=", i++, " | ", x, "\n"
 }
 
-# Print the roots and vertex coordinates of ax²+bx+c
+# Print the roots and vertex coordinates of ax²+bx+c.
 define void quadratic(a,b,c) {
     print "For vertex (h,k) and roots r[1] and r[2],\n"
 
@@ -56,22 +56,22 @@ define void quadratic(a,b,c) {
     }
 }
 
-# Print the roots and local extrema coordinates of ax³+bx²+cx+d
-define void cubic(a,b,c,d) {
-    # 3a*x^2 + b*x + c
-    # 6a*x + b 
-    print "For inflection point at i,\n"
-    print "local extrema at h[1] and h[2],\n"
-    print "and roots r[1] and r[2] and r[3],\n"
-}
-
-# Print the roots and local extrema coordinates of ax⁴+bx³+cx²+dx+e
-define void quartic(a,b,c,d,e) {
-    #print "For TK jerk points at ,\n"
-    print "For inflection points at i[1] and i[2],\n"
-    print "local extrema at h[1] and h[2] and h[3],\n"
-    print "and roots r[1] and r[2] and r[3] and r[4],\n"
-}
+# # Print the roots and local extrema coordinates of ax³+bx²+cx+d
+# define void cubic(a,b,c,d) {
+#     # 3a*x^2 + b*x + c
+#     # 6a*x + b 
+#     print "For inflection point at i,\n"
+#     print "local extrema at h[1] and h[2],\n"
+#     print "and roots r[1] and r[2] and r[3],\n"
+# }
+# 
+# # Print the roots and local extrema coordinates of ax⁴+bx³+cx²+dx+e
+# define void quartic(a,b,c,d,e) {
+#     #print "For TK jerk points at ,\n"
+#     print "For inflection points at i[1] and i[2],\n"
+#     print "local extrema at h[1] and h[2] and h[3],\n"
+#     print "and roots r[1] and r[2] and r[3] and r[4],\n"
+# }
 
 # Print the coefficients of the simple continued fraction representation of x
 # as well as each convergent obtained by truncating at that coefficient,
@@ -107,7 +107,7 @@ define void contfrac(x) {
     }
 }
 
-# Print n expressed in bases 2, 3, ..., 36
+# Print n expressed in bases 2, 3, ..., 36.
 define void bases(n) {
     auto i, base
     base = obase
@@ -122,7 +122,7 @@ define void bases(n) {
     obase = base
 }
 
-# Print the prime integer factorization of n
+# Print the prime integer factorization of n.
 define void factor(n) {
     auto i, s, p
     s = scale
@@ -139,7 +139,8 @@ define void factor(n) {
     return
 }
 
-# Convert 2-dimensional rectangular coordinates to polar coordinates
+# Convert two-dimensional rectangular coordinates 
+# to polar coordinates and vice-versa respectively.
 define void rect2polar(x,y) {
     r = sqrt(x^2+y^2)
     theta = atan2(y,x)
@@ -147,8 +148,6 @@ define void rect2polar(x,y) {
     print "theta = ", theta, "\n"
     return
 }
-
-# Convert 2-dimensional polar coordinates to rectangular coordinates
 define void polar2rect(r,theta) {
     x = r*c(theta)
     y = r*s(theta)
@@ -157,15 +156,14 @@ define void polar2rect(r,theta) {
     return
 }
 
-# Convert 3-dimensional rectilinear coordinates to cylindrical coordinates
+# Convert three-dimensional rectangular coordinates 
+# to cylindrical coordinates and vice-versa respectively.
 define void rect2cyl(x,y,zed) {
     rect2polar(x,y)
     z = zed
     print "z = ", z, "\n"
     return
 }
-
-# Convert 3-dimensional cylindrical coordinates to rectilinear coordinates
 define void cyl2rect(r,theta,zed) {
     polar2rect(r,theta)
     z = zed
@@ -173,8 +171,11 @@ define void cyl2rect(r,theta,zed) {
     return
 }
 
-# Convert 3-dimensional rectilinear coordinates to spherical coordinates
-# This follows the "mathematical" conventions for spherical coordinates
+# Convert three-dimensional rectangular coordinates 
+# to spherical coordinates and vice-versa respectively,
+# following the mathematician’s convention 
+# with the zenith angle θ in the range [0,2π) with θ = 0 along the positive x-axis,
+# and the azimuth angle φ in the range [0,π] with φ = 0 along the positive z-axis.
 define void rect2sphere(x,y,z) {
     rho = sqrt(x^2+y^2+z^2)
     theta = atan2(y,x)
@@ -184,9 +185,6 @@ define void rect2sphere(x,y,z) {
     print "phi = ", phi, "\n"
     return
 }
-
-# Convert 3-dimensional spherical coordinates to rectilinear coordinates
-# This follows the "mathematical" conventions for spherical coordinates
 define void sphere2rect(rho,theta,phi) {
     x = rho*s(phi)*c(theta)
     y = rho*s(phi)*s(theta)
@@ -206,8 +204,6 @@ define void collatz(n) {
     collatz_(n)
     scale = s
 }
-
-# Recursive helper function to collatz(n)
 define collatz_(n) {
     if(n==1)
         return 1
@@ -246,7 +242,7 @@ define void sumofpowers(m) {
     print "✓\n"
 }
 
-# Print n uniquely as a sum of non-adjacent Fibonacci numbers
+# Prints the unique sum of non-adjacent Fibonacci numbers equal to n.
 define void zeckendorf(n) {
     auto  f
     f = fibonacci(int(l(n*sqrt(5)+1/2)/l((1+sqrt(5))/2)))
