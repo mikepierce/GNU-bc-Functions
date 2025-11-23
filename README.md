@@ -5,8 +5,8 @@ My working collection of functions for
 The functions are split into two files:
 `functions.bc` containing pure functions that only return a value,
 and `routines.bc` containing functions that I’ve found useful in practice as an instructor
-that, generally, prints information about some input.
-Note that files like these can be loaded automatically by bc 
+that, generally, print information about some input.
+Files like these can be loaded automatically by bc at startup
 by setting this environment variable:
 
     export BC_ENV_ARGS="-lq /PATH/TO/functions.bc /PATH/TO/routines.bc"
@@ -66,16 +66,16 @@ Alongside the ubiquitous mathematical functions in this list,
 this file contains implementations of the following:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
-    (`derivative(x)`) –
+    `derivative(x)`  
     Returns the derivative of the (global) function `f` at `x`
     using a finite central distance with eight points.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
-    (`newton(x)`) –
+    `newton(x)`  
     Returns the zero of the (global) function `f`
     that results from iteratively applying Newton's Method 
     with initial parameter `x`.
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
-    (`integral(a,b)`) –
+    `integral(a,b)`  
     Returns the value of the definite integral 
     of the (global) function `f` between `a` and `b`.
 
@@ -144,7 +144,7 @@ This file defines the following routines:
 
 ## Conventions 
 
-  - If a function in `routines.bc` updates/defines a variable globally, 
+  - If a function in `routines.bc` defines or updates the value of a variable globally, 
     it will `print` that variable assignment explicitly.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
