@@ -67,80 +67,78 @@ this file contains implementations of the following:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
     `derivative(x)`  
-    Returns the derivative of the (global) function `f` at `x`
+    Returns the derivative of the (global) function *f* at *x*
     using a finite central distance with eight points.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     `newton(x)`  
-    Returns the zero of the (global) function `f`
+    Returns the zero of the (global) function *f*
     that results from iteratively applying Newton's Method 
-    with initial parameter `x`.
+    with initial parameter *x*.
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
     `integral(a,b)`  
     Returns the value of the definite integral 
-    of the (global) function `f` between `a` and `b`.
+    of the (global) function *f* between *a* and *b*.
 
 ## `routines.bc`
 
 This file defines the following routines:
 
   - [Pythagorean Triple Generator](https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple)
-    (`pythagtriple(m,n)`) –
+    (`pythagtriple(m,n)`)  
     Print the Pythagorean triple generated
-    by two parameters `m` and `n`, and return the hypotenuse.
+    by two parameters *m* and *n*, and return the hypotenuse.
   - [Pythagorean Quadruple Generator](ihttps://en.wikipedia.org/wiki/Pythagorean_quadruple#Parametrization_of_primitive_quadruples)
-    (`pythagquadruple(m,n,p,q)`) –
+    (`pythagquadruple(m,n,p,q)`)  
     Print the Pythagorean quadruple generated 
-    by parameters `m`, `n`, `p`, and `q`, and return the hypotenuse.
+    by parameters *m*, *n*, *p*, and *q*, and return the hypotenuse.
   - [Degrees/Minutes/Seconds (DMS)](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
-    (`dd2dms(x)`) –
-    which prints the angle `x`, presumed to be measured in degrees,
-    in terms of degrees° minutes′ seconds″.
-    Prints the angle `x`, presumed as a decimal number of degrees,
+    (`dd2dms(x)`)  
+    Prints the angle *x*, presumed as a decimal number of degrees,
     in DMS (degrees° minutes′ seconds″) notation.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
-    (`newtoniter(x,n)`) –
-    Iteratively applies Newton's Method `n` times, printing each result,
-    with initial guess `x` and (global) function `f`.
+    (`newtoniter(x)`)  
+    Iteratively applies Newton's Method, printing each result,
+    with initial guess *x* and (global) function *f*.
   - [Quadratic Polynomial Solver](https://en.wikipedia.org/wiki/Quadratic_equation)
-    (`quadratic(a,b,c)`) –
-    Print the roots and vertex coordinates of ax²+bx+c.
+    (`quadratic(a,b,c)`)  
+    Print the roots and vertex coordinates of *a*x²+*b*x+*c*.
   - [Simple Continued Fraction](https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents) 
-    (`contfrac(x)`) –
-    Print the coefficients of the simple continued fraction representation of x
+    (`contfrac(x)`)  
+    Print the coefficients of the simple continued fraction representation of *x*
     as well as each convergent obtained by truncating at that coefficient,
-    which are successively better rational approximations to the number x.
+    which are successively better rational approximations to the number *x*.
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
-    (`bases(n)`) –
+    (`bases(n)`)  
     Print `n` expressed in bases 2, 3, ..., 36.
   - [Prime Integer Factorization](https://en.wikipedia.org/wiki/Integer_factorization) 
-    (`factor(n)`) –
-    Print the prime integer factorization of `n`.
+    (`factor(n)`)  
+    Print the prime integer factorization of *n*.
   - [Rectangular/Polar Conversion](https://en.wikipedia.org/wiki/Polar_coordinate_system) 
-    (`rect2pol(x,y)`) and (`pol2rect(r,θ)`) –
+    (`rect2pol(x,y)`) and (`pol2rect(r,θ)`)  
     Convert two-dimensional rectangular coordinates 
     to polar coordinates and vice-versa respectively.
   - [Rectilinear/Cylindrical Conversion](https://en.wikipedia.org/wiki/Cylindrical_coordinate_system) 
-    (`rect2cyl(x,y,z)`) and (`cyl2rect(r,θ,z)`) –
+    (`rect2cyl(x,y,z)`) and (`cyl2rect(r,θ,z)`)  
     Convert three-dimensional rectangular coordinates 
     to cylindrical coordinates and vice-versa respectively.
   - [Rectilinear/Spherical Conversion](https://en.wikipedia.org/wiki/Spherical_coordinate_system) 
-    (`rect2sphere(x,y,z)`) and (`sphere2rect(ρ,θ,φ)`) –
+    (`rect2sphere(x,y,z)`) and (`sphere2rect(ρ,θ,φ)`)  
     Convert three-dimensional rectangular coordinates 
     to spherical coordinates and vice-versa respectively,
     following the mathematician’s convention 
-    with the zenith angle θ in the range [0,2π) with θ = 0 along the positive x-axis,
-    and the azimuth angle φ in the range [0,π] with φ = 0 along the positive z-axis.
+    with the zenith angle *θ* in the range [0,2π) with *θ* = 0 along the positive x-axis,
+    and the azimuth angle *φ* in the range [0,π] with *φ* = 0 along the positive z-axis.
   - [Collazt (Hailstone) Sequence](https://en.wikipedia.org/wiki/Collatz_conjecture) 
-    (`collatz(n)`) –
+    (`collatz(n)`)  
     Print the sequence of positive integers that results from 
     iteratively applying the function prescribed by the Collatz Conjecture.
   - [Sum of Consecutive Powers](https://en.wikipedia.org/wiki/Sums_of_powers)
-    (`sumofpowers(m)`) –
-    Print every way that `m` can be written as a sum 
+    (`sumofpowers(m)`)  
+    Print every way that *m* can be written as a sum 
     of powers of consecutive positive integers.
   - [Zeckendorf Presentation](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
-    (`zeckendorf(n)`) –
-    Prints the unique sum of non-adjacent Fibonacci numbers equal to `n`.
+    (`zeckendorf(n)`)  
+    Prints the unique sum of non-adjacent Fibonacci numbers equal to *n*.
 
 ## Conventions 
 

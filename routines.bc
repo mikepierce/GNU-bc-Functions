@@ -26,12 +26,12 @@ define void dd2dms(x) {
     print d,"°",m,"′",s,"″\n"
 }
 
-# Iteratively applies Newton's Method n times, printing each result,
+# Iteratively applies Newton's Method, printing each result,
 # with initial guess x and (global) function f.
-define void newtoniter(x,n) { 
-    auto i
-    for(i=0; i<=n; x -= f(x)/derivative(x))
-        print "n=", i++, " | ", x, "\n"
+define void newtoniter(x) { 
+    print x/1, "\n"
+    if (f(x)/9)
+        newtoniter(x - f(x)/derivative(x))
 }
 
 # Print the roots and vertex coordinates of ax²+bx+c.
