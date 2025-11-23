@@ -58,6 +58,8 @@ define void quadratic(a,b,c) {
 
 # Print the roots and local extrema coordinates of ax³+bx²+cx+d
 define void cubic(a,b,c,d) {
+    # 3a*x^2 + b*x + c
+    # 6a*x + b 
     print "For inflection point at i,\n"
     print "local extrema at h[1] and h[2],\n"
     print "and roots r[1] and r[2] and r[3],\n"
@@ -71,60 +73,38 @@ define void quartic(a,b,c,d,e) {
     print "and roots r[1] and r[2] and r[3] and r[4],\n"
 }
 
-# Print the simple continued fraction of x accurate up to scale
+# Print the coefficients of the simple continued fraction representation of x
+# as well as each convergent obtained by truncating at that coefficient,
+# which are successively better rational approximations to the number x
 define void contfrac(x) {
-    auto i, a[], h[], k[], m
-    m = x
+    auto i, j, k, l, a[], h[], k[], r
 
-    a[0] = int(x) 
+    if(x == int(x)) { print x, " = ", x, "/", 1, "\n"; return }
+
+    r = x
+    a[0] = int(r)
     h[0] = a[0]
     k[0] = 1
-    x = 1/(x-a[0])
+    l = length(a[0])
 
-    a[1] = int(x)
+    r = 1/(r-a[0])
+    a[1] = int(r)
     h[1] = a[1]*h[0]+1
     k[1] = a[1]
-    x = 1/(x-a[1])
+    l = max(l,length(a[1]))
 
-    for(i=1; m!=h[i]/k[i]; ++i) {
-        a[i+1] = int(x)
-        h[i+1] = a[i+1]*h[i]+h[i-1]
-        k[i+1] = a[i+1]*k[i]+k[i-1]
-        x = 1/(x-a[i+1])
+    for(i=2; x!=h[i-1]/k[i-1]; ++i) {
+        r = 1/(r-a[i-1])
+        a[i] = int(r)
+        h[i] = a[i]*h[i-1]+h[i-2]
+        k[i] = a[i]*k[i-1]+k[i-2]
+        l = max(l,length(a[i]))
     }
-
-    print "[", a[0], "; "
-    for(i=2; a[i]!=0; i++) 
-        print a[i-1], ", "
-    print "... ]\n"
-}
-
-# Print increasingly better rational approximations to the number x 
-# obtained by truncating its continued fraction; its convergents
-define void rational(x) {
-    auto i, a[], h[], k[], m
-    m = x
-
-    a[0] = int(x)
-    h[0] = a[0]
-    k[0] = 1
-    if(m == h[0]/k[0]) { print h[0]/k[0], " is an integer ✓\n"; return }
-    x = 1/(x-a[0])
-
-    a[1] = int(x)
-    h[1] = a[1]*h[0]+1
-    k[1] = a[1]
-    if(m == h[1]/k[1]) { print h[1]/k[1], " = ", h[1], "/", k[1], " and is rational ✓\n"; return }
-    x = 1/(x-a[1])
-
-    for(i=1; m!=h[i]/k[i]; ++i) {
-        print h[i]/k[i], " = ", h[i], "/", k[i], "\n"
-        a[i+1] = int(x)
-        h[i+1] = a[i+1]*h[i]+h[i-1]
-        k[i+1] = a[i+1]*k[i]+k[i-1]
-        x = 1/(x-a[i+1])
+    
+    for(j=0; j<i; ++j) {
+        for(k=l-length(a[j]); k; k--) { print " " }
+        print a[j], " | ", h[j]/k[j], " = ", h[j], "/", k[j], "\n"
     }
-    print m/1, " = ", h[i], "/", k[i], " ✓\n"
 }
 
 # Print n expressed in bases 2, 3, ..., 36

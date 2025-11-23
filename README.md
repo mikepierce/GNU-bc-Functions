@@ -20,6 +20,7 @@ Here is a list of the functions this file defines:
 [`sgn`](https://en.wikipedia.org/wiki/Sign_function)
 [`abs`](https://en.wikipedia.org/wiki/Absolute_value)
 [`heavyside`](https://en.wikipedia.org/wiki/Heaviside_step_function)
+`max`
 [`int`](https://en.wikipedia.org/wiki/Truncation)
 [`frac`](https://en.wikipedia.org/wiki/Truncation)
 `ln`
@@ -104,11 +105,11 @@ Here is a list of the functions this file defines:
     (`quadratic(a,b,c)`)
     which prints the roots and vertex of a degree-two polynomial
     given its coefficients as input.
-  - [Rational Approximation](https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents) 
-    (`rational(x)`)
-    which displays subsequently better rational approximations to `x` —
-    the convergents of its continued fraction presentation —
-    until finding the first one equal to `x` up to `scale`.
+  - [Simple Continued Fraction](https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents) 
+    (`contfrac(x)`) –
+    Print the coefficients of the simple continued fraction representation of x
+    as well as each convergent obtained by truncating at that coefficient,
+    which are successively better rational approximations to the number x.
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
     (`bases(n)`)
     which displays a number `n` in bases 2, 3, …, 36.
