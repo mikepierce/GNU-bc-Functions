@@ -3,11 +3,9 @@
 My working collection of functions for 
 [GNU bc](https://www.gnu.org/software/bc/).
 The functions are split into two files:
-`functions.bc` containing simple “pure” functions, 
-and `routines.bc` containing functions 
-that I’ve found useful in practice as an instructor.
-Generically, the functions in `functions.bc` print nothing and return a value,
-and the functions in `routines.bc` print out stuff.
+`functions.bc` containing pure functions that only return a value,
+and `routines.bc` containing functions that I’ve found useful in practice as an instructor
+that, generally, prints information about some input.
 Note that files like these can be loaded automatically by bc 
 by setting this environment variable:
 
@@ -15,7 +13,7 @@ by setting this environment variable:
 
 ## `functions.bc`
 
-Here is a list of the functions this file defines:
+This file defines the following functions:
 
 [`sgn`](https://en.wikipedia.org/wiki/Sign_function)
 [`abs`](https://en.wikipedia.org/wiki/Absolute_value)
@@ -68,20 +66,22 @@ Alongside the ubiquitous mathematical functions in this list,
 this file contains implementations of the following:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
-    (`derivative(x)`)
-    which numerically computes the value of a derivative
-    of a global function `f` at `x`.
+    (`derivative(x)`) –
+    Returns the derivative of the (global) function `f` at `x`
+    using a finite central distance with eight points.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
-    (`newton(x)`)
-    which approximates a zero of a global function `f` near `x`.
+    (`newton(x)`) –
+    Returns the zero of the (global) function `f`
+    that results from iteratively applying Newton's Method 
+    with initial parameter `x`.
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
-    (`integral(a,b)`)
-    which numerically computes the value of a definite integral 
-    of a global function `f` between `a` and `b`.
+    (`integral(a,b)`) –
+    Returns the value of the definite integral 
+    of the (global) function `f` between `a` and `b`.
 
 ## `routines.bc`
 
-Here is a list of the functions this file defines:
+This file defines the following routines:
 
   - [Pythagorean Triple Generator](https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple)
     (`pythagtriple(m,n)`) –
