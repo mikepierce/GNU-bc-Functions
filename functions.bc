@@ -5,6 +5,7 @@
 
 pi = 4*a(1)
 ex = e(1)
+phi = (sqrt(5)+1)/2
 define sgn(x) { if(x>0) return 1; if(x<0) return -1; }
 define abs(x) { return sgn(x)*x }
 define heavyside(x) { return (x>0) }
@@ -12,6 +13,9 @@ define max(x,y) { if(x>y) return x; return y}
 
 # Return the integer-part of a number (not the floor)
 define int(x) { auto s; s=scale; scale=0; x/=1; scale=s; return x; }
+
+# Return the integer-part of b modulo the integer-part of m
+define intmod(b,m) { auto s,a; s=scale; scale=0; a=(b/1)%(m/1); scale=s; return a; }
 
 # Return the fractional-part of a number
 define frac(x) { return x-int(x) }

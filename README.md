@@ -21,6 +21,7 @@ This file defines the following functions:
 `max`
 [`int`](https://en.wikipedia.org/wiki/Truncation)
 [`frac`](https://en.wikipedia.org/wiki/Truncation)
+[`intmod`](https://en.wikipedia.org/wiki/Modular_arithmetic)
 `ln`
 `log`
 `logb`
