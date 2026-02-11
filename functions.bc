@@ -20,6 +20,9 @@ define intmod(b,m) { auto s,a; s=scale; scale=0; a=(b/1)%(m/1); scale=s; return 
 # Return the fractional-part of a number
 define frac(x) { return x-int(x) }
 
+# Return 1 if x is strictly within t of being a whole number
+define isnearlyintegral(x,t) { return (abs(frac(x)) < t) }
+
 ################################################################################
 ### Logarithms & Exponentials
 
