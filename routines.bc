@@ -242,9 +242,92 @@ define void sumofpowers(m) {
     print "✓\n"
 }
 
+# Prints the digits of the integer part of x expressed in base obase.
+define void intdigits(x) {
+    auto i
+    i = intdigits_(x);
+    for(i=1; obase-intdigits[i]; i++)
+        print "intdigits[", i, "] = ", intdigits[i], "\n";
+}
+
+# Creates an array intdigits[] containing the digits 
+# of the integer part of x expressed in base obase
+# for which intdigits[i] is the digit in the ith position left of the radix point
+# and which terminates with a value of obase.
+define void intdigits_(x) {
+    auto s, i
+    s = scale;
+    scale = 0;
+    x/=1;
+    for(i=1; x; x=(x-intdigits[i++])/obase)
+        intdigits[i] = x % obase;
+    intdigits[i] = obase;
+    scale = s;
+}
+
+# Prints the digits of the fractional part of x expressed in base obase.
+define void fracdigits(x) {
+    auto i
+    i = fracdigits_(x);
+    for(i=1; obase-fracdigits[i]; i++)
+        print "fracdigits[", i, "] = ", fracdigits[i], "\n";
+}
+
+# Creates an array fracdigits[] containing the digits 
+# of the fractional part of x expressed in base obase
+# for which fracdigits[i] is the digit in the ith position right of the radix point
+# and which terminates with a value of obase.
+define void fracdigits_(x) {
+    auto i, d
+    d = int(1+scale*l(A)/l(obase))
+    for(i=1; i<=d; x -= fracdigits[i++]) {
+        x = (frac(x))*obase
+        fracdigits[i] = int(x);
+    }
+    fracdigits[i] = obase
+}
+#######define void old_(x) {
+#######    auto i
+#######    for(i=1; x; x -= fracdigits[i++]) {
+#######        x = (frac(x))*obase
+#######        fracdigits[i] = int(x);
+#######    }
+#######    fracdigits[i] = obase
+#######}
+
+# Returns 1 if the digits of x expressed in obase 
+# are only those digits allowed in *digits[],
+# indicated with a value at that digits's index in *digits[] of 1.
+define onlydigits(x, *digits[]) {
+    auto i, j, flag
+    intdigits_(x)
+    fracdigits_(x)
+    for(j=1; obase-intdigits[j]; j++) {
+        flag = 0
+        for(i=0; i<obase; i++) {
+            if(digits[i] && intdigits[j]==i) {
+                flag = 1
+                break
+            }
+        }
+        if(!flag) { return 0 }
+    }
+    for(j=1; obase-fracdigits[j]; j++) {
+        flag = 0
+        for(i=0; i<obase; i++) {
+            if(digits[i] && fracdigits[j]==i) {
+                flag = 1
+                break
+            }
+        }
+        if(!flag) { return 0 }
+    }
+    return 1
+}
+
 # Prints the unique sum of non-adjacent Fibonacci numbers equal to n.
 define void zeckendorf(n) {
-    auto  f
+    auto f
     f = fibonacci(int(l(n*sqrt(5)+1/2)/l((1+sqrt(5))/2)))
     print f
     if(n-f) {

@@ -139,6 +139,13 @@ This file defines the following routines:
     (`sumofpowers(m)`)  
     Print every way that *m* can be written as a sum 
     of powers of consecutive positive integers.
+  - Digital Analysis
+    (`intdigits(x)` and `fracdigits(x)` and `onlydigits(x, *l[])`)
+    For any value of `obase`, 
+    `intdigits` creates a list of the digits of the integer part of a number,
+    `fracdigits` creates a list of the digits of the fractional part of a number,
+    and `onlydigits` will return true (1) if the number contains _only_ the digits
+    specified in `l[]` as the indices with nonzero value.
   - [Zeckendorf Presentation](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
     (`zeckendorf(n)`)  
     Prints the unique sum of non-adjacent Fibonacci numbers equal to *n*.
