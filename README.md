@@ -21,7 +21,9 @@ This file defines the following functions:
 `max`
 [`int`](https://en.wikipedia.org/wiki/Truncation)
 [`frac`](https://en.wikipedia.org/wiki/Truncation)
+`truncate`
 [`intmod`](https://en.wikipedia.org/wiki/Modular_arithmetic)
+`isnearlyintegral`
 `ln`
 `log`
 `logb`
