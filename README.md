@@ -1,11 +1,11 @@
 # GNU Basic Calculator (bc) Functions
 
-My working collection of functions for 
+My working collection of functions and stuff for 
 [GNU bc](https://www.gnu.org/software/bc/).
-The functions are split into two files:
+The code is split into two files:
 `functions.bc` containing pure functions that only return a value,
-and `routines.bc` containing functions that I’ve found useful in practice as an instructor
-that, generally, print information about some input.
+and `routines.bc` containing functions I’ve found useful in practice as an instructor
+that generally print information about some input.
 Files like these can be loaded automatically by bc at startup
 by setting this environment variable:
 
@@ -21,9 +21,9 @@ This file defines the following functions:
 `max`
 [`int`](https://en.wikipedia.org/wiki/Truncation)
 [`frac`](https://en.wikipedia.org/wiki/Truncation)
-`truncate`
+[`trunc`](https://en.wikipedia.org/wiki/Truncation)
 [`intmod`](https://en.wikipedia.org/wiki/Modular_arithmetic)
-`isnearlyintegral`
+[`isnearlyintegral`](https://en.wikipedia.org/wiki/Almost_integer)
 `ln`
 `log`
 `logb`
@@ -65,7 +65,7 @@ This file defines the following functions:
 `integral`
 `prime`
 
-Alongside the ubiquitous mathematical functions in this list,
+In addition to these ubiquitous mathematical functions,
 this file contains implementations of the following:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
@@ -90,7 +90,7 @@ This file defines the following routines:
     (`pythagtriple(m,n)`)  
     Print the Pythagorean triple generated
     by two parameters *m* and *n*, and return the hypotenuse.
-  - [Pythagorean Quadruple Generator](ihttps://en.wikipedia.org/wiki/Pythagorean_quadruple#Parametrization_of_primitive_quadruples)
+  - [Pythagorean Quadruple Generator](https://en.wikipedia.org/wiki/Pythagorean_quadruple#Parametrization_of_primitive_quadruples)
     (`pythagquadruple(m,n,p,q)`)  
     Print the Pythagorean quadruple generated 
     by parameters *m*, *n*, *p*, and *q*, and return the hypotenuse.
@@ -139,13 +139,14 @@ This file defines the following routines:
     (`sumofpowers(m)`)  
     Print every way that *m* can be written as a sum 
     of powers of consecutive positive integers.
-  - Digital Analysis
-    (`intdigits(x)` and `fracdigits(x)` and `onlydigits(x, *l[])`)
-    For any value of `obase`, 
-    `intdigits` creates a list of the digits of the integer part of a number,
-    `fracdigits` creates a list of the digits of the fractional part of a number,
-    and `onlydigits` will return true (1) if the number contains _only_ the digits
-    specified in `l[]` as the indices with nonzero value.
+  - [Digits → List of Digits](https://en.wikipedia.org/wiki/Positional_notation)
+    (`intdigits(x)` and `fracdigits(x)` and `onlydigits(x, *digits[])`)
+    Create a list of the digits of *x* as a list.
+    In particular, for any value of `obase`, 
+    `intdigits` will create a list of the digits of the integer part of a number,
+    `fracdigits` will create a list of the digits of the fractional part of a number,
+    and `onlydigits` will return true if the number contains _only_ the digits
+    specified in the list `digits[]` as the indices with nonzero value.
   - [Zeckendorf Presentation](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
     (`zeckendorf(n)`)  
     Prints the unique sum of non-adjacent Fibonacci numbers equal to *n*.
@@ -160,8 +161,9 @@ This file defines the following routines:
   - Function names ending in `_` are *helper* functions
     not intended to be called directly.
   - Some functions that return the nth number in a sequence
-    (e.g. `fibonacci`, `prime`) create an array of the same name as the function
-    containing all previous terms in the sequence used to compute the nth term.
+    (e.g. `fibonacci`, `prime`, etc) 
+    also create an array of the same name as the function
+    containing all other terms in the sequence used to compute the nth term.
   - There are certain things bc is not designed for
     — linear algebra, statistics, and complex arithmetic among others —
     and should not be implemented in bc.

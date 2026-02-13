@@ -248,6 +248,7 @@ define void intdigits(x) {
     i = intdigits_(x);
     for(i=1; obase-intdigits[i]; i++)
         print "intdigits[", i, "] = ", intdigits[i], "\n";
+    print "fracdigits[", i, "] = ", fracdigits[i], " (obase) \n";
 }
 
 # Creates an array intdigits[] containing the digits 
@@ -271,6 +272,7 @@ define void fracdigits(x) {
     i = fracdigits_(x);
     for(i=1; obase-fracdigits[i]; i++)
         print "fracdigits[", i, "] = ", fracdigits[i], "\n";
+    print "fracdigits[", i, "] = ", fracdigits[i], " (obase) \n";
 }
 
 # Creates an array fracdigits[] containing the digits 
@@ -286,14 +288,6 @@ define void fracdigits_(x) {
     }
     fracdigits[i] = obase
 }
-#######define void old_(x) {
-#######    auto i
-#######    for(i=1; x; x -= fracdigits[i++]) {
-#######        x = (frac(x))*obase
-#######        fracdigits[i] = int(x);
-#######    }
-#######    fracdigits[i] = obase
-#######}
 
 # Returns 1 if the digits of x expressed in obase 
 # are only those digits allowed in *digits[],

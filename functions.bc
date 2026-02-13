@@ -18,7 +18,7 @@ define int(x) { auto s; s=scale; scale=0; x/=1; scale=s; return x; }
 define frac(x) { return x-int(x) }
 
 # Truncate (round down) at the nth decimal place
-define truncate(x,n) { auto s; s=scale; scale=n; x/=1; scale=s; return x; }
+define trunc(x,n) { auto s; s=scale; scale=n; x/=1; scale=s; return x; }
 
 # Return the integer-part of b modulo the integer-part of m
 define intmod(b,m) { auto s,a; s=scale; scale=0; a=(b/1)%(m/1); scale=s; return a; }
