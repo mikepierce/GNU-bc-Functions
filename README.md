@@ -140,7 +140,7 @@ This file defines the following routines:
     Print every way that *m* can be written as a sum 
     of powers of consecutive positive integers.
   - [Digits → List of Digits](https://en.wikipedia.org/wiki/Positional_notation)
-    (`intdigits(x)` and `fracdigits(x)` and `onlydigits(x, *digits[])`)
+    (`intdigits(x)` and `fracdigits(x)` and `onlydigits(x, *digits[])`)  
     Create a list of the digits of *x* as a list.
     In particular, for any value of `obase`, 
     `intdigits` will create a list of the digits of the integer part of a number,
