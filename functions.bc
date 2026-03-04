@@ -209,6 +209,20 @@ define boole_(a,b) {
 ################################################################################
 ### Number Theory
 
+# Returns +/- the greatest-common-divisor of m and n per scale;
+# quotients must be whole numbers but remainders may be rational
+define gcd(m,n) {
+    auto r 
+    r = m-int(m/n)*n
+    if(r) return gcd(n,r)
+    return n
+}
+
+# # Returns the least-common-multiple of m and n per scale.
+# define lcm(m,n) {
+#     return m*n/gcd(m,n)
+# }
+
 # Returns the nth prime integer
 define prime(n) {
     auto i, s 
@@ -219,7 +233,7 @@ define prime(n) {
 }
 
 # Fill in the array of prime numbers prime[]
-# beyond index j, up through k
+# beyond index j, up through k, and return prime[k]
 define prime_(j,k) {
     auto i, n, flag, p, s
     s = scale

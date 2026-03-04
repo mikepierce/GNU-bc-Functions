@@ -63,6 +63,7 @@ This file defines the following functions:
 `derivative`
 `newton`
 `integral`
+`gcd`
 `prime`
 
 In addition to these ubiquitous mathematical functions,
