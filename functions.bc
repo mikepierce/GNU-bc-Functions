@@ -218,10 +218,10 @@ define gcd(m,n) {
     return n
 }
 
-# # Returns the least-common-multiple of m and n per scale.
-# define lcm(m,n) {
-#     return m*n/gcd(m,n)
-# }
+# Returns the least-common-multiple of m and n per scale
+define lcm(m,n) {
+    return m*(n/gcd(m,n))
+}
 
 # Returns the nth prime integer
 define prime(n) {

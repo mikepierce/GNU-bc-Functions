@@ -64,6 +64,7 @@ This file defines the following functions:
 `newton`
 `integral`
 `gcd`
+`lcm`
 `prime`
 
 In addition to these ubiquitous mathematical functions,
