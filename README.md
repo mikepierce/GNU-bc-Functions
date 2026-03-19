@@ -87,13 +87,8 @@ Some of these functions however deserve an explanation:
     of the (global) function *f* between *a* and *b*.
   - [Minkowski's Question-Mark Function](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)
     `minkowski(x)`  
-    Denoted $?(x),$ returns a number constructed in binary from the continued fraction of $x:$
-    $$
-        \pi = 3 + \frac{1}{7+\frac{1}{15+\frac{1}{1+\dotsb}}}
-        \quad\implies\quad
-        ?(\pi) = 11.\underbrace{0000000}{7}\underbrace{111111111111111}{15}\underbrace{0}{1}\dots_b
-        \approx 3.01562476158142089844
-    $$
+    Usually denoted *?(x)*, returns a number constructed in binary from the continued fraction of *x*:
+    $$\pi = 3 + \frac{1}{7+\frac{1}{15+\dotsb}} \quad\implies\quad ?(\pi) = 11.\underbrace{0000000}_{7}{\underbrace{111111111111111}_{15}}\dots_b \approx 3.01562476158142089844$$
 
 ## `routines.bc`
 
