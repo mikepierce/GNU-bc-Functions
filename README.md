@@ -74,8 +74,8 @@ Some of these functions however deserve an explanation:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
     `derivative(x)`  
-    Returns the derivative of the (global) function *f* at *x*
-    computing using a finite central distance with eight points.
+    Returns the derivative of the function *f* at *x*
+    computed using a finite central distance with eight points.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     `newton(x)`  
     If it terminates, returns the zero of the (global) function *f*
@@ -83,10 +83,10 @@ Some of these functions however deserve an explanation:
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
     `integral(a,b)`  
     Returns the value of the definite integral of the (global) function *f* between *a* and *b*
-    computed using Boole's rule applied to progressively finer intervals.
+    computed using Boole's rule applied recursively to progressively finer subintervals.
   - [Minkowski's Question-Mark Function](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)
     `minkowski(x)`  
-    Usually denoted *?(x)*, returns a number constructed in binary from the continued fraction of *x*.
+    Returns a number constructed in binary from the continued fraction of *x*.
 
 ## `routines.bc`
 
@@ -102,8 +102,8 @@ This file defines the following routines:
     by parameters *m*, *n*, *p*, and *q*, and return the hypotenuse.
   - [Degrees/Minutes/Seconds (DMS)](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
     `dd2dms(x)`  
-    Prints the angle *x*, presumed as a decimal number of degrees,
-    in DMS (degrees° minutes′ seconds″) notation.
+    Prints the decimal degree angle *x*
+    in terms of DMS (degrees° minutes′ seconds″).
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     `newtoniter(x)`  
     Iteratively applies Newton's Method, printing each result,
@@ -115,7 +115,7 @@ This file defines the following routines:
     `contfrac(x)`  
     Print the coefficients of the simple continued fraction representation of *x*
     as well as each convergent obtained by truncating at that coefficient,
-    which are successively better rational approximations to the number *x*.
+    giving successively better rational approximations to *x*.
   - [Different Base Expression](https://en.wikipedia.org/wiki/Radix) 
     `bases(n)`  
     Print `n` expressed in bases 2, 3, ..., 36.
