@@ -60,29 +60,35 @@ define void contfrac(x) {
 
     if(x == int(x)) { print x, " = ", x, "/", 1, "\n"; return }
 
+    # First iteration
     r = x
-    contfrac[0] = int(r)
-    h[0] = contfrac[0]
+    a[0] = int(r)
+    h[0] = a[0]
     k[0] = 1
-    l = length(contfrac[0])
+    l = length(a[0])
 
-    r = 1/(r-contfrac[0])
-    contfrac[1] = int(r)
-    h[1] = contfrac[1]*h[0]+1
-    k[1] = contfrac[1]
-    l = max(l,length(contfrac[1]))
+    # Second iteration
+    r = 1/(r-a[0])
+    a[1] = int(r)
+    h[1] = a[1]*h[0]+1
+    k[1] = a[1]
+    l = max(l,length(a[1]))
 
+    # Third iteration and beyond
     for(i=2; x!=h[i-1]/k[i-1]; ++i) {
-        r = 1/(r-contfrac[i-1])
-        contfrac[i] = int(r)
-        h[i] = contfrac[i]*h[i-1]+h[i-2]
-        k[i] = contfrac[i]*k[i-1]+k[i-2]
-        l = max(l,length(contfrac[i]))
+        r = 1/(r-a[i-1])
+        a[i] = int(r)
+        h[i] = a[i]*h[i-1]+h[i-2]
+        k[i] = a[i]*k[i-1]+k[i-2]
+        l = max(l,length(a[i]))
     }
     
+    # Pretty print the results
     for(j=0; j<i; ++j) {
-        for(k=l-length(contfrac[j]); k; k--) { print " " }
-        print contfrac[j], " | ", h[j]/k[j], " = ", h[j], "/", k[j], "\n"
+        for(k=int(logb(i,10))-int(logb(j+0.5,10)); k; k--) { print " " }
+        print "a[", j, "] = "
+        for(k=l-length(a[j]); k; k--) { print " " }
+        print a[j], " | ", h[j]/k[j], " = ", h[j], "/", k[j], "\n"
     }
 }
 
