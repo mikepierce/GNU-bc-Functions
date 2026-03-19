@@ -1,7 +1,7 @@
 ### functions.bc
 
 ################################################################################
-### Helpful Constants and Functions
+### Constants and Basic Functions
 
 pi = 4*a(1)
 ex = e(1)
@@ -250,5 +250,38 @@ define prime_(j,k) {
     }
     scale = s
     return prime[k]
+}
+
+# Minkowski's question-mark function
+define minkowski(x) {
+    auto i, j, a[], h[], k[], r
+
+    if(x == int(x)) {return x}
+    if(x < 0) {return -minkowski(-x)}
+
+    r = x
+    a[0] = int(r)
+    h[0] = a[0]
+    k[0] = 1
+
+    r = 1/(r-a[0])
+    a[1] = int(r)
+    h[1] = a[1]*h[0]+1
+    k[1] = a[1]
+
+    for(i=2; x!=h[i-1]/k[i-1]; ++i) {
+        r = 1/(r-a[i-1])
+        a[i] = int(r)
+        h[i] = a[i]*h[i-1]+h[i-2]
+        k[i] = a[i]*k[i-1]+k[i-2]
+    }
+    
+    a[0] += 1/pow(2,a[1]-1)
+    for(j=2; j<i; ++j) {
+        a[j] += a[j-1]
+        a[0] += (sgn(intmod(j,2)-0.5))/pow(2,a[j]-1)
+    }
+
+    return a[0]
 }
 

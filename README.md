@@ -66,8 +66,9 @@ This file defines the following functions:
 `gcd`
 `lcm`
 `prime`
+`minkowski`
 
-In addition to these ubiquitous mathematical functions,
+In addition to the basic/ubiquitous mathematical functions,
 this file contains implementations of the following:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
@@ -83,6 +84,8 @@ this file contains implementations of the following:
     `integral(a,b)`  
     Returns the value of the definite integral 
     of the (global) function *f* between *a* and *b*.
+  - [Minkowski's Question-Mark Function](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)
+    `minkowski(x)`  
 
 ## `routines.bc`
 
@@ -162,10 +165,10 @@ This file defines the following routines:
     Such a function will be named `f`.
   - Function names ending in `_` are *helper* functions
     not intended to be called directly.
-  - Some functions that return the nth number in a sequence
-    (e.g. `fibonacci`, `prime`, etc) 
+  - Some functions that inherently entail a sequence of numbers
+    (e.g. `fibonacci`, `prime`, `contfrac`, etc) 
     also create an array of the same name as the function
-    containing all other terms in the sequence used to compute the nth term.
+    containing all other terms in the sequence.
   - There are certain things bc is not designed for
     — linear algebra, statistics, and complex arithmetic among others —
     and should not be implemented in bc.
@@ -177,12 +180,12 @@ This file defines the following routines:
   - Add `cubic` and `quartic` functions that prints the details of a cubic and quartic polynomial.
   - Replace the discrete combinatorics functions (factorial, pick, choose, etc) with continuous (analytic?) analogous so I can remove the PRINT statements.
   - Add a function that finds constructable algebraic approximations to real numbers. (see [this](https://mathoverflow.net/q/2861/64073)).
-  - Browse the [NIST Digital Library of Mathematical Functions](https://dlmf.nist.gov) for thoughts.
 
 ## Allusions
 
   - [The GNU Basic Calculator (bc): a Quick-Start Guide for Mathematicians](https://org.coloradomesa.edu/~mapierce2/bc)
   - [GNU bc Manual](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
   - [Library of bc function on phodd.net](http://phodd.net/gnu-bc/)
-  - [Keith Matthews' number theory functions](http://www.numbertheory.org/gnubc/gnubc.html)
+  - [Keith Matthews' number theory functions in bc](http://www.numbertheory.org/gnubc/gnubc.html)
+  - [NIST Digital Library of Mathematical Functions](https://dlmf.nist.gov)
 
