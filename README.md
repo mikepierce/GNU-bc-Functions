@@ -75,16 +75,15 @@ Some of these functions however deserve an explanation:
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
     `derivative(x)`  
     Returns the derivative of the (global) function *f* at *x*
-    using a finite central distance with eight points.
+    computing using a finite central distance with eight points.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     `newton(x)`  
-    Returns the zero of the (global) function *f*
-    that results from iteratively applying Newton's Method 
-    with initial parameter *x*.
+    If it terminates, returns the zero of the (global) function *f*
+    that results from iteratively applying Newton's Method with initial parameter *x*.
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
     `integral(a,b)`  
-    Returns the value of the definite integral 
-    of the (global) function *f* between *a* and *b*.
+    Returns the value of the definite integral of the (global) function *f* between *a* and *b*
+    computed using Boole's rule applied to progressively finer intervals.
   - [Minkowski's Question-Mark Function](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)
     `minkowski(x)`  
     Usually denoted *?(x)*, returns a number constructed in binary from the continued fraction of *x*.
@@ -162,18 +161,18 @@ This file defines the following routines:
 
   - If a function in `routines.bc` defines or updates the value of a variable globally, 
     it will `print` that variable assignment explicitly.
+  - Some functions in `functions.bc` that inherently entail a sequence of numbers
+    (e.g. `fibonacci`, `prime`, etc) also create an array of the same name 
+    containing all computed terms in the sequence.
+  - There are functions not documented in this README with name ending in `_`. 
+    These are *helper* functions, usually for the sake of recursion, 
+    not intended to be called directly.
   - Since bc doesn't accept functions as parameters to other functions,
     any functions that morally should be a parameter must be defined globally.
     Such a function will be named `f`.
-  - Function names ending in `_` are *helper* functions
-    not intended to be called directly.
-  - Some functions that inherently entail a sequence of numbers
-    (e.g. `fibonacci`, `prime`, `contfrac`, etc) 
-    also create an array of the same name as the function
-    containing all other terms in the sequence.
-  - There are certain things bc is not designed for
-    — linear algebra, statistics, and complex arithmetic among others —
-    and should not be implemented in bc.
+  - There are certain things bc is not designed for — 
+    linear algebra, statistics, complex arithmetic, etc 
+    — and should not be implemented in bc.
     These, if one so desires, should be implemented upstream 
     within a fork of the bc program itself.
 
