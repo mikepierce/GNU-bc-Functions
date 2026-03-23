@@ -259,7 +259,7 @@ define minkowski(x) {
     if(x == int(x)) {return x}
     if(x < 0) {return -minkowski(-x)}
 
-    r = x
+    r = x/1
     a[0] = int(r)
     h[0] = a[0]
     k[0] = 1

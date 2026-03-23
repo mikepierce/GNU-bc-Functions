@@ -59,9 +59,9 @@ define void contfrac(x) {
     auto i, j, k, l, h[], k[], r
 
     if(x == int(x)) { print x, " = ", x, "/", 1, "\n"; return }
+    r = x/1
 
     # First iteration
-    r = x
     a[0] = int(r)
     h[0] = a[0]
     k[0] = 1
