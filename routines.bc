@@ -58,10 +58,11 @@ define void quadratic(a,b,c) {
 define void contfrac(x) {
     auto i, j, k, l, h[], k[], r
 
+    x/=1
     if(x == int(x)) { print x, " = ", x, "/", 1, "\n"; return }
-    r = x/1
 
     # First iteration
+    r = x/1
     a[0] = int(r)
     h[0] = a[0]
     k[0] = 1

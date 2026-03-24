@@ -256,10 +256,11 @@ define prime_(j,k) {
 define minkowski(x) {
     auto i, j, a[], h[], k[], r
 
+    x/=1
     if(x == int(x)) {return x}
     if(x < 0) {return -minkowski(-x)}
 
-    r = x/1
+    r = x
     a[0] = int(r)
     h[0] = a[0]
     k[0] = 1
