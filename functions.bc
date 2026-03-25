@@ -172,8 +172,10 @@ define derivative(x) {
 # that results from iteratively applying Newton's Method 
 # with initial parameter x.
 define newton(x) { 
-    if (f(x)/9)
-        return newton(x - f(x)/derivative(x))
+    auto y
+    y = f(x)
+    if (y/9)
+        return newton(x - y/derivative(x))
     return x
 }
 
