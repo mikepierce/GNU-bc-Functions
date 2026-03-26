@@ -282,7 +282,7 @@ define minkowski(x) {
     a[0] += 1/pow(2,a[1]-1)
     for(j=2; j<i; ++j) {
         a[j] += a[j-1]
-        a[0] += (sgn(intmod(j,2)-0.5))/pow(2,a[j]-1)
+        a[0] += (sgn(intmod(j,2)-0.5))/(2^(a[j]-1))
     }
 
     return a[0]
