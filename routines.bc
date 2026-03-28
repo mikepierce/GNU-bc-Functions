@@ -55,6 +55,7 @@ define void quadratic(a,b,c) {
 # Print the coefficients of the simple continued fraction representation of x
 # as well as each convergent obtained by truncating at that coefficient,
 # which are successively better rational approximations to the number x
+define void cf(x) { return contfrac(x) }
 define void contfrac(x) {
     auto i, j, k, l, h[], k[], r
 
