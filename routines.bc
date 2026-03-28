@@ -53,9 +53,9 @@ define void quadratic(a,b,c) {
 }
 
 # Print the coefficients of the simple continued fraction representation of x
+# storing those coefficients to the array a[i] which zero-terminates,
 # as well as each convergent obtained by truncating at that coefficient,
 # which are successively better rational approximations to the number x
-define void cf(x) { return contfrac(x) }
 define void contfrac(x) {
     auto i, j, k, l, h[], k[], r
 
@@ -84,6 +84,7 @@ define void contfrac(x) {
         k[i] = a[i]*k[i-1]+k[i-2]
         l = max(l,length(a[i]))
     }
+    a[i] = 0 
     
     # Pretty print the results
     for(j=0; j<i; ++j) {
@@ -92,6 +93,9 @@ define void contfrac(x) {
         for(k=l-length(a[j]); k; k--) { print " " }
         print a[j], " | ", h[j]/k[j], " = ", h[j], "/", k[j], "\n"
     }
+    print "a[", j, "] = "
+    for(k=l-length(a[j]); k; k--) { print " " }
+    print a[j], " ✓ \n"
 }
 
 # Print n expressed in bases 2, 3, ..., 36.
