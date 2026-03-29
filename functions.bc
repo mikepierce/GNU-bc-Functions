@@ -154,6 +154,21 @@ define fibonacci(n) {
     return fibonacci[n]
 }
 
+# Return the number with continued fraction coefficients a[]
+define contfrac2obase(*a[]) { 
+    auto i, h[], k[]
+
+    h[0] = a[0]
+    k[0] = 1
+    h[1] = a[1]*h[0]+1
+    k[1] = a[1]
+    for(i=2; a[i]; i++) {
+        h[i] = a[i]*h[i-1]+h[i-2]
+        k[i] = a[i]*k[i-1]+k[i-2]
+    }
+    return h[i-1]/k[i-1]
+}
+
 ################################################################################
 ### Calculus
 

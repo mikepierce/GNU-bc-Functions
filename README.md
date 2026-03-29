@@ -60,6 +60,7 @@ This file defines the following functions:
 [`pick`](https://en.wikipedia.org/wiki/Permutation)
 [`choose`](https://en.wikipedia.org/wiki/Combination)
 [`fibonacci`](https://en.wikipedia.org/wiki/Fibonacci_sequence)
+[`contfrac2obase`](https://en.wikipedia.org/wiki/Simple_continued_fraction)
 `derivative`
 `newton`
 `integral`
