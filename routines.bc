@@ -239,7 +239,7 @@ define void intdigits(x) {
     i = intdigits_(x);
     for(i=1; obase-intdigits[i]; i++)
         print "intdigits[", i, "] = ", intdigits[i], "\n";
-    print "fracdigits[", i, "] = ", fracdigits[i], " (obase) \n";
+    print "intdigits[", i, "] = ", intdigits[i], " (obase) \n";
 }
 
 # Creates an array intdigits[] containing the digits 
@@ -271,13 +271,16 @@ define void fracdigits(x) {
 # for which fracdigits[i] is the digit in the ith position right of the radix point
 # and which terminates with a value of obase.
 define void fracdigits_(x) {
-    auto i, d
-    d = int(1+scale*l(A)/l(obase))
-    for(i=1; i<=d; x -= fracdigits[i++]) {
+    auto s, i, d
+    # s = scale;
+    # scale = scale(x)
+    d = int(1+scale(x)*l(A)/l(obase))
+    for(i=1; i<d; x -= fracdigits[i++]) {
         x = (frac(x))*obase
         fracdigits[i] = int(x);
     }
     fracdigits[i] = obase
+    # scale = s
 }
 
 # Returns 1 if the digits of x expressed in obase 
