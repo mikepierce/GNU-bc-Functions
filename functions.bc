@@ -23,8 +23,14 @@ define trunc(x,n) { auto s; s=scale; scale=n; x/=1; scale=s; return x; }
 # Return the integer-part of b modulo the integer-part of m
 define intmod(b,m) { auto s,a; s=scale; scale=0; a=(b/1)%(m/1); scale=s; return a; }
 
+# Return 1 if the fractional part of x is strictly less than t
+define isoverintegral(x,t) { return (abs(frac(x)) < t) }
+
+# Return 1 if the fractional part of x is less than t shy of 1
+define isunderintegral(x,t) { return (1-abs(frac(x)) < t) }
+
 # Return 1 if x is strictly within t of being a whole number
-define isnearlyintegral(x,t) { return (abs(frac(x)) < t) }
+define isnearlyintegral(x,t) { return (isoverintegral(x,t) || isunderintegral(x,t)) }
 
 ################################################################################
 ### Logarithms & Exponentials
@@ -173,12 +179,14 @@ define contfrac2obase(*a[]) {
 ### Calculus
 
 # Returns the derivative of the (global) function f at x
-# using a finite central distance with eight points.
+# using a finite central distance with a nine point stencil.
 define derivative(x) {
     auto h, d
     h = A^-scale
     scale *= 2
     d = (3*f(x-4*h)-32*f(x-3*h)+168*f(x-2*h)-672*f(x-h)+672*f(x+h)-168*f(x+2*h)+32*f(x+3*h)-3*f(x+4*h))/(840*h)
+    # d = (-2*f(x-5*h)+25*f(x-4*h)-150*f(x-3*h)+600*f(x-2*h)-2100*f(x-h)+2100*f(x+h)-600*f(x+2*h)+150*f(x+3*h)-25*f(x+4*h)+2*f(x+5*h))/(2520*h) # eleven-point
+    # d = (5*f(x-6*h)-72*f(x-5*h)+495*f(x-4*h)-2200*f(x-3*h)+7425*f(x-2*h)-23760*f(x-h)+23760*f(x+h)-7425*f(x+2*h)+2200*f(x+3*h)-495*f(x+4*h)+72*f(x+5*h)-5*f(x+6*h))/(27720*h) # thirteen-point
     scale /= 2
     return d/1
 }
