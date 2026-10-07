@@ -23,6 +23,8 @@ This file defines the following functions:
 [`frac`](https://en.wikipedia.org/wiki/Truncation)
 [`trunc`](https://en.wikipedia.org/wiki/Truncation)
 [`intmod`](https://en.wikipedia.org/wiki/Modular_arithmetic)
+`isoverintegral`
+`isunderintegral`
 [`isnearlyintegral`](https://en.wikipedia.org/wiki/Almost_integer)
 `ln`
 `log`
