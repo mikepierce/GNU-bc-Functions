@@ -30,6 +30,7 @@ This file defines the following functions:
 `log`
 `logb`
 [`pow`](https://en.wikipedia.org/wiki/Exponentiation)
+[`cbrt`](https://en.wikipedia.org/wiki/Cube_root)
 `rad2deg`
 `deg2rad`
 [`dms2dd`](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)

@@ -39,6 +39,7 @@ define ln(x) { return l(x) }
 define log(x) { return l(x)/l(A) }
 define logb(x,b) { return l(x)/l(b) }
 define pow(x,n) { return e(n*l(x)) }
+define cbrt(x) { return pow(x,1/3) }
 
 ################################################################################
 ### Trigonometry
