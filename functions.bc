@@ -194,12 +194,26 @@ define derivative(x) {
 
 # Returns the zero of the (global) function f
 # that results from iteratively applying Newton's Method 
-# with initial parameter x.
+# with initial seed x.
 define newton(x) { 
-    auto y
+    auto y, yy
     y = f(x)
+    yy = derivative(x)
     if (y/9)
-        return newton(x - y/derivative(x))
+        return newton(x-y/yy)
+    return x
+}
+
+# Returns the zero of the (global) function f with second derivatives fff
+# that results from iteratively applying Halley's Method 
+# with initial seed x.
+define halley(x) { 
+    auto y, yy
+    y = f(x)
+    yy = derivative(x)
+    yyy = fff(x)
+    if (y/9)
+        return halley(x-(2*y*yy)/(2*yy^2-y*yyy))
     return x
 }
 

@@ -66,6 +66,7 @@ This file defines the following functions:
 [`contfrac2obase`](https://en.wikipedia.org/wiki/Simple_continued_fraction)
 `derivative`
 `newton`
+`halley`
 `integral`
 `gcd`
 `lcm`
@@ -81,9 +82,12 @@ Some of these functions however deserve an explanation:
     Returns the derivative of the function *f* at *x*
     computed using a finite central distance with eight points.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
+    and [Halley's Method](https://en.wikipedia.org/wiki/Halley%27s_method)
     `newton(x)`  
+    `halley(x)`  
     If it terminates, returns the zero of the (global) function *f*
-    that results from iteratively applying Newton's Method with initial parameter *x*.
+    that results from iteratively applying Newton's Method 
+    or Halley's Method with initial seed *x*.
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
     `integral(a,b)`  
     Returns the value of the definite integral of the (global) function *f* between *a* and *b*
@@ -111,7 +115,7 @@ This file defines the following routines:
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     `newtoniter(x)`  
     Iteratively applies Newton's Method, printing each result,
-    with initial guess *x* and (global) function *f*.
+    with initial seed *x* and (global) function *f*.
   - [Quadratic Polynomial Solver](https://en.wikipedia.org/wiki/Quadratic_equation)
     `quadratic(a,b,c)`  
     Print the roots and vertex coordinates of *a*x²+*b*x+*c*.
