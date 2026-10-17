@@ -84,9 +84,8 @@ Some of these functions however deserve an explanation:
     Returns approximate values of the first, second, and third derivative 
     of the (global) function *f* evaluated at *x*, 
     computed using a finite central distance approximation from a seventeen-point stencil.
-  - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
-    and [Halley's Method](https://en.wikipedia.org/wiki/Halley%27s_method)
-    `newton(x)` `halley(x)`  
+  - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method) `newton(x)`
+    and [Halley's Method](https://en.wikipedia.org/wiki/Halley%27s_method) `halley(x)`  
     If it terminates, returns the zero of the (global) function *f*
     that results from iteratively applying Newton's Method 
     or Halley's Method with initial seed *x*.

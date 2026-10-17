@@ -29,26 +29,28 @@ define void dd2dms(x) {
 # Iteratively applies Newton's Method, printing each result,
 # with initial guess x and (global) function f.
 define void newtoniter(x) { 
+    auto y
     print x/1, "\n"
-    if (f(x)/9)
-        newtoniter(x - f(x)/derivative(x))
+    y = f(x)
+    if(y/9)
+        newtoniter(x - y/derivative(x))
 }
 
-# Print the features of ax²+bx+c.
+# Print the features of the quadratic function ax²+bx+c.
 define void quadratic(a,b,c) {
     if(a == 0) return
 
     h = -b/(2*a)
     k = (4*a*c-b^2)/(4*a)
-    print "Extremum (h,k) = (", h, ", ", k, ")\n"
+    print "Vertex (h,k) = (", h, ", ", k, ")\n"
 
-    if(b^2-4*a*c < 0) {
-        print "Roots ", h, " ± ", sqrt(k/a), "𝐢\n"
+    if(b^2 < 4*a*c) {
+        print "Roots h±√(-k/a) = ", h, " ± √", k/a, "𝐢\n"
     } else {
         r[1] = h - sqrt(-k/a)
         r[2] = h + sqrt(-k/a)
-        print "Root r[1] = ", r[1], "\n"
-        print "Root r[2] = ", r[2], "\n"
+        print "Root r[1] = h–√(-k/a) = ", r[1], "\n"
+        print "Root r[2] = h+√(-k/a) = ", r[2], "\n"
     }
 }
 

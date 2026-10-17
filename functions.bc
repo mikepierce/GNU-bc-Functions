@@ -235,7 +235,7 @@ define newton(x) {
 # Returns the zero of the (global) function f that results from 
 # iteratively applying Halley's Method with initial seed x.
 define halley(x) { 
-    auto y, yy
+    auto y, yy, yyy
     y = f(x)
     yy = derivative(x) # = ff(x)
     yyy = dderivative(x) # = fff(x)
