@@ -65,6 +65,8 @@ This file defines the following functions:
 [`fibonacci`](https://en.wikipedia.org/wiki/Fibonacci_sequence)
 [`contfrac2obase`](https://en.wikipedia.org/wiki/Simple_continued_fraction)
 `derivative`
+`dderivative`
+`ddderivative`
 `newton`
 `halley`
 `integral`
@@ -78,16 +80,18 @@ or, if not, can be quickly understood from their signature and brief definition.
 Some of these functions however deserve an explanation:
 
   - [Numerical Differentiation](https://en.wikipedia.org/wiki/Finite_difference_coefficient)
-    `derivative(x)`  
-    Returns the derivative of the function *f* at *x*
-    computed using a finite central distance with eight points.
+    `derivative(x)` `dderivative(x)` `ddderivative(x)`  
+    Returns approximate values of the first, second, and third derivative 
+    of the (global) function *f* evaluated at *x*, 
+    computed using a finite central distance approximation from a seventeen-point stencil.
   - [Newton's Method](https://en.wikipedia.org/wiki/Newton's_method)
     and [Halley's Method](https://en.wikipedia.org/wiki/Halley%27s_method)
-    `newton(x)`  
-    `halley(x)`  
+    `newton(x)` `halley(x)`  
     If it terminates, returns the zero of the (global) function *f*
     that results from iteratively applying Newton's Method 
     or Halley's Method with initial seed *x*.
+    The derivatives used in these methods are computed numerically;
+    they can be sped up if necessary by manually defining the derivatives of *f*.
   - [Numerical Integration](https://en.wikipedia.org/wiki/Boole%27s_rule)
     `integral(a,b)`  
     Returns the value of the definite integral of the (global) function *f* between *a* and *b*

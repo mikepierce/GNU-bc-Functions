@@ -179,39 +179,66 @@ define contfrac2obase(*a[]) {
 ################################################################################
 ### Calculus
 
-# Returns the derivative of the (global) function f at x
-# using a finite central distance with a nine point stencil.
-define derivative(x) {
+# Returns an approximation of the first derivative 
+# of the (global) function f evaluated at x
+# using a finite central distance with a seventeen-point stencil.
+define derivative1(x) { return firstderivative(x) }
+define derivative(x) { return firstderivative(x) }
+define firstderivative(x) {
     auto h, d
     h = A^-scale
     scale *= 2
-    d = (3*f(x-4*h)-32*f(x-3*h)+168*f(x-2*h)-672*f(x-h)+672*f(x+h)-168*f(x+2*h)+32*f(x+3*h)-3*f(x+4*h))/(840*h)
-    # d = (-2*f(x-5*h)+25*f(x-4*h)-150*f(x-3*h)+600*f(x-2*h)-2100*f(x-h)+2100*f(x+h)-600*f(x+2*h)+150*f(x+3*h)-25*f(x+4*h)+2*f(x+5*h))/(2520*h) # eleven-point
-    # d = (5*f(x-6*h)-72*f(x-5*h)+495*f(x-4*h)-2200*f(x-3*h)+7425*f(x-2*h)-23760*f(x-h)+23760*f(x+h)-7425*f(x+2*h)+2200*f(x+3*h)-495*f(x+4*h)+72*f(x+5*h)-5*f(x+6*h))/(27720*h) # thirteen-point
+    d = (640640*(f(x+h)-f(x-h))-224224*(f(x+2*h)-f(x-2*h))+81536*(f(x+3*h)-f(x-3*h))-25480*(f(x+4*h)-f(x-4*h))+6272*(f(x+5*h)-f(x-5*h))-1120*(f(x+6*h)-f(x-6*h))+128*(f(x+7*h)-f(x-7*h))-7*(f(x+8*h)-f(x-8*h)))/(720720*h)
     scale /= 2
     return d/1
 }
 
-# Returns the zero of the (global) function f
-# that results from iteratively applying Newton's Method 
-# with initial seed x.
+# Returns an approximation of the second derivative 
+# of the (global) function f evaluated at x
+# using a finite central distance with a seventeen-point stencil.
+define derivative2(x) { return secondderivative(x) }
+define dderivative(x) { return secondderivative(x) }
+define secondderivative(x) {
+    auto h, d
+    h = A^-scale
+    scale *= 3
+    d = (538137600*(f(x-h)+f(x+h))-94174080*(f(x-2*h)+f(x+2*h))+22830080*(f(x-3*h)+f(x+3*h))-5350800*(f(x-4*h)+f(x+4*h))+1053696*(f(x-5*h)+f(x+5*h))-156800*(f(x-6*h)+f(x+6*h))+15360*(f(x-7*h)+f(x+7*h))-735*(f(x-8*h)+f(x+8*h))-924708642*f(x))/(302702400*h^2)
+    scale /= 3
+    return d/1
+}
+
+# Returns an approximation of the third derivative 
+# of the (global) function f evaluated at x
+# using a finite central distance with a seventeen-point stencil.
+define derivative3(x) { return thirdderivative(x) }
+define ddderivative(x) { return thirdderivative(x) }
+define thirdderivative(x) {
+    auto h, d
+    h = A^-scale
+    scale *= 5
+    d = (-8514769120*(f(x+h)-f(x-h))+7218002792*(f(x+2*h)-f(x-2*h))-2910104288*(f(x+3*h)-f(x-3*h))+940620590*(f(x+4*h)-f(x-4*h))-235093600*(f(x+5*h)-f(x-5*h))+42325960*(f(x+6*h)-f(x-6*h))-4861024*(f(x+7*h)-f(x-7*h))+266681*(f(x+8*h)-f(x-8*h)))/(3027024000*h^3)
+    scale /= 5
+    return d/1
+}
+
+# Returns the zero of the (global) function f that results from 
+# iteratively applying Newton's Method with initial seed x.
 define newton(x) { 
     auto y, yy
     y = f(x)
-    yy = derivative(x)
+    yy = derivative(x) # = ff(x)
     if (y/9)
         return newton(x-y/yy)
     return x
 }
 
-# Returns the zero of the (global) function f with second derivatives fff
-# that results from iteratively applying Halley's Method 
-# with initial seed x.
+# Returns the zero of the (global) function f that results from 
+# iteratively applying Halley's Method with initial seed x.
 define halley(x) { 
     auto y, yy
     y = f(x)
-    yy = derivative(x)
-    yyy = fff(x)
+    yy = derivative(x) # = ff(x)
+    yyy = dderivative(x) # = fff(x)
     if (y/9)
         return halley(x-(2*y*yy)/(2*yy^2-y*yyy))
     return x
